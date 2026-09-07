@@ -4,6 +4,8 @@ label: pkviewer
 icon: ../media/pkviewer.svg
 ---
 
+![](../media/pkviewer-banner.png)
+
 pkviewer turns a [*PluralKit*](https://pluralkit.me) system into a website.
 
 **[pkviewer.xyz](https://pkviewer.xyz)**
