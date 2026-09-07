@@ -8,7 +8,7 @@ on:
 
 jobs:
   mirror:
-    if: github.repository == 'docs/sandrone'
+    if: github.repository == 'doughmination/docs'
     runs-on: ubuntu-latest
 
     permissions:
