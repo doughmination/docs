@@ -57,19 +57,31 @@ The bot's version comes from `pyproject.toml` rather than an environment variabl
 ```
 sandrone/          The bot itself
   __main__.py      Entry point; refuses to start without a token
-  client.py        Bot subclass, extension discovery, dev reload, shutdown
-  config.py        Environment and paths
-  doughchecks.py   The has_permissions decorator
-  errors.py        Global app-command error handler
-commands/          Always-on cogs (stats, links, admin)
-  cogs/            Everything that can be unloaded — one file per command area
+  checks.py        Permission checks, and the handlers for when one refuses
+  client.py        Bot subclass, prefix rules, extension discovery, dev reload, shutdown
+  config.py        Environment, paths, and which cogs are disabled
+  mood.py          Sandrone's personality — sassy refusals, /judge verdicts, incident lines
+  website.py       Serves the landing page and sitemap
+commands/          Always-on cogs (help, stats, links, admin)
+  cogs/            Everything that can be unloaded, in category folders
+    fun/           animals, gifs, the_game, eightball, judge, incidents
+    lookups/       github, codeberg, wikipedia, ubdict, whois
+    media/         bluesky, twitter, yt_dlp, pride
+    nerd/          pi
+    nsfw/          horny_gifs
+    people/        profile, pfp, userid, pluralkit
+    tools/         case, convert, decrypt, encrypt, json_format, qr, regex, translate
+    genshin.py     single-file cogs that don't warrant a folder sit at the top level
+    snippets.py
 utils/             Shared helpers
-  cog_state.py     Which cogs are disabled, persisted to cog_state.json
-  colors.py        Terminal colour
+  __init__.py      Terminal colour
+  choices.py       Choice sets that accept the same spellings on slash and prefix
+  components.py    Components V2 panels, plus markdown escaping and code blocks
   doughmination.py Client for the Doughmination API
   downloads.py     The download server, slot management, and expiry sweep
-  markdown.py      Escaping, code blocks, caret-under-the-error rendering
+  genshin_card.py  Renders the Genshin character card image
   pride.py         Flag rendering, ported from pride-pfp.xyz
+  usage.py         Turns a mistyped command into a panel showing its real shape
 tests/             pytest
 ```
 
@@ -79,8 +91,10 @@ Extensions are discovered by scanning `commands/` and `commands/cogs/` for `.py`
 
 The split matters:
 
-- **`commands/`** — always loaded. `stats`, `links`, `admin`.
-- **`commands/cogs/`** — can be switched off at runtime with `/cog unload`, which writes the name into `cog_state.json` so it stays off across restarts.
+- **`commands/`** — always loaded. `stats`, `links`, `admin`. Scanned one level deep.
+- **`commands/cogs/`** — can be switched off at runtime with `/cog unload`, which writes the name into `cog_state.json` so it stays off across restarts. Scanned recursively.
+
+Cogs in `commands/cogs/` are grouped into category folders — `fun/`, `tools/`, `lookups/`, `media/`, `people/`, `nsfw/`. A cog's **handle** — what `/cog load` and `/cog unload` take, and what's stored in `cog_state.json` — is its path under `commands/cogs/` with the slashes written as dots: `commands/cogs/fun/eightball.py` is `fun.eightball`, and a file left at the top level like `genshin.py` is just `genshin`. Adding a category is only a new folder; there is nothing to register.
 
 A cog can also decline to load itself. The `github` cog does exactly that when `GITHUB_TOKEN` is unset: it prints a note and returns without registering, rather than failing loudly on every command.
 
@@ -88,18 +102,20 @@ After any load or unload the command tree is re-synced with Discord.
 
 ### Dev mode
 
-With `DEV_MODE=true`, the bot watches `commands/cogs/` and reloads any file you save, then re-syncs the tree. Cogs you've disabled through `/cog unload` are skipped rather than quietly coming back.
+With `DEV_MODE=true`, the bot watches `commands/cogs/` — category folders included — and reloads any file you save, then re-syncs the tree. Cogs you've disabled through `/cog unload` are skipped rather than quietly coming back.
 
 You still need a restart for changes to `sandrone/`, `utils/`, or the always-on cogs in `commands/`.
 
 ### Permission checks
 
-`doughchecks.has_permissions` is a thin wrapper over discord.py's own check, with two deliberate differences:
+`checks.has_permissions` is a thin wrapper over discord.py's own check, with two deliberate differences:
 
 - It reads `interaction.app_permissions`, so it's checking what the **bot** can do in this channel, not what you can.
 - It passes in DMs unless `guildOnly=True`, because permissions don't apply there.
 
 Failures raise `BotMissingPermissions`, which the global handler turns into the *"I am missing `Embed Links`…"* message, only visible to the person who ran the command. Checking up front is why a permission problem never leaves a half-sent reply.
+
+That handler lives in the same module. `sandrone/checks.py` holds both halves of the lifecycle — the checks that decide whether a command runs, and the handlers that turn any failure, a refused check or a mistyped argument alike, into a reply — so adding a guard and giving it a voice is one edit rather than two.
 
 ### The download server
 

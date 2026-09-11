@@ -4,13 +4,13 @@ label: Privacy Policy
 icon: ../../media/legal.png
 ---
 
-> Effective 6 September 2026
+> Effective 11 September 2026
 
-Sandrone is a personal, hobby Discord bot. It has no database, no analytics, and no user accounts. It writes two kinds of file to its host, neither of them about you, and this policy explains the little that does happen.
+Sandrone is a personal, hobby Discord bot. It has no database, no analytics, and no user accounts. It writes three kinds of file to its host, none of them about you, and this policy explains the little that does happen.
 
 ### What Sandrone stores about you
 
-Nothing. There is no database, no log of who ran what, and no profile kept on any user. The bot writes `cog_state.json`, which records which command modules the owner has switched off, and it writes the temporary media files described below. Neither contains user data of any kind: nothing links a stored file to the person who requested it.
+Nothing. There is no database, no log of who ran what, and no profile kept on any user. The bot writes `cog_state.json`, which records which command modules the owner has switched off; it writes the temporary media files described below; and it caches the game artwork `/genshin` draws its cards from, which is Genshin Impact character art, not anything of yours. None of the three contains user data of any kind: nothing links a stored file to the person who requested it.
 
 ### Hosted downloads (`/yt-dlp`)
 
@@ -32,6 +32,8 @@ The one thing that can outlast the reply is a hosted `/yt-dlp` file, covered abo
 
 Sandrone does not have the message content intent. It cannot read your conversations — only what you type into a slash command's options.
 
+For the puppet-incident feature ([Sandrone's moods](/projects/sandrone/commands/#sandrones-moods)), the bot does notice when a message is sent, so it knows which channel is currently active. All it keeps is a single "most recently active channel" pointer, held in memory and wiped on restart. It records no message content — it cannot read any — no author, and no history; the previous channel is simply overwritten by the next.
+
 ### Third-party services
 
 Some commands work by asking another service on your behalf. When you use one, the search term you typed is sent to that service, which has its own privacy policy and its own logs. Sandrone has no control over what they keep.
@@ -45,7 +47,8 @@ Some commands work by asking another service on your behalf. When you use one, t
 - **girlcockx.com**, which receives the post URL you give `/tweet`, to build the embed.
 - **Bluesky's public API**, which receives the handle and post ID you give `/bluesky`. The resulting embed links to **xsky.app**.
 - **WHOIS servers**, which receive the domain or IP you give `/whois`. The lookup starts at IANA and follows referrals to the registry and registrar for that name, so more than one operator sees the query. It never carries anything about you — WHOIS has no facility for it.
-- **The Doughmination API** (`doughmination.uk`), which `/profile` queries with the Discord ID of whoever the command is run on, and which `/genshin` queries for the owner's own game accounts.
+- **The Doughmination API** (`doughmination.uk`), which `/profile` queries with the Discord ID of whoever the command is run on, and which `/genshin` queries with the Genshin UID you type. That UID is a game account number you supply, not something Sandrone knows about you, and it is not recorded anywhere.
+- **Enka.Network**, which is where the Doughmination API gets Genshin account data from. Your UID reaches it through that API when you run `/genshin`; nothing about your Discord account does.
 - **The Argos Translate package index**, which `/translate` contacts to list and download language models. The translation itself runs locally on the bot's host — the text you type is **not** sent to a translation service.
 - **cataas**, which serves `/kitty` a random image and receives nothing about you.
 - **m.doughmination.gay**, the CDN that serves images and GIFs, which your Discord client fetches the way it fetches any embedded image.
@@ -56,7 +59,7 @@ One thing worth being explicit about: `/stats` calls **ip-api.com** to report wh
 
 When a command fails, the bot prints the command's name and the error text to its own console on the host machine. That output can include a search term you passed if the term is what caused the error. It is not stored long-term, not published, and not linked to your account.
 
-The console also records module loads and unloads, and the count of expired downloads removed by each sweep. Neither mentions a user. Nothing else is logged.
+The console also records module loads and unloads, the count of expired downloads removed by each sweep, and the channel a puppet incident was posted into (its name and server, never a user). None of it mentions a user. Nothing else is logged.
 
 ### Age-restricted commands
 

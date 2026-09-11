@@ -49,7 +49,9 @@ These are answers, not failures — the thing you asked about doesn't exist or i
 | *"No Discord profile found for @…"* | The profile API hasn't seen that user. A coverage gap, not a fault on your side. |
 | *"@… doesn't have a registered PluralKit system."* | Exactly that. |
 | *"…'s current front is private."* | The system has front privacy switched on. Working as intended. |
-| *"No character matching "…" was found in the catalog."* | Wrong spelling, or the character isn't owned on that account. The name option suggests as you type — use the suggestions. |
+| *"No Enka.Network record for UID `…`"* | `/genshin` found no such account. The profile may be private, unindexed, or the UID is wrong. |
+| *"This account has no visible characters."* | The account exists but shows nobody. Enable *Display all your characters* on the in-game Character Showcase, or pin a few, then retry. |
+| *"Enka.Network is unavailable right now"* | The upstream source is down. Sandrone says so rather than showing old figures as current; try again shortly. |
 
 ## Bad input
 
@@ -60,6 +62,7 @@ These are answers, not failures — the thing you asked about doesn't exist or i
 | *"That doesn't look like a `twitter.com` or `x.com` post link."* | `/tweet` needs a link to a specific post, with `/status/<id>` in it — not a profile. |
 | *"That doesn't look like a `bsky.app` or `xsky.app` post link."* | `/bluesky` needs a post link, with `/profile/…/post/…` in it. |
 | *"That doesn't look like a domain or IP address. Try `example.com`."* | `/whois` couldn't make sense of the input. |
+| *"That doesn't look like a Genshin UID — it should be 9–10 digits."* | `/genshin` checks the shape before looking anything up. The UID is on your in-game profile. |
 | *"There are no letters or digits in that to re-case."* | `/case` was given punctuation only. |
 | *"That isn't valid JSON"* | With the parser's complaint, the line and column, and a caret under the exact character. |
 | *"Invalid pattern"* | `/regex` couldn't compile it, with the column and a caret. |
@@ -113,6 +116,12 @@ Not an error — the GIF was too big even at the smallest fallback size, so you 
 The catch-all: something failed that wasn't anticipated. The message carries the underlying error, and the same thing is printed to the bot's own console on the host.
 
 If you can reproduce it, that message is exactly what to put in a [bug report](https://github.com/doughmination/sandrone/issues) — with the command and the options you used.
+>>>
+
+## Sandrone just refused
+
+>>> *"No."* / *"Absolutely not."* / *"The puppet has reviewed your request. It has declined."*
+Not an error. Roughly one command in ten, Sandrone turns it down on purpose with a short gold panel instead of running it. There's no cooldown — just run it again. See [Sandrone's moods](/projects/sandrone/commands/#sandrones-moods).
 >>>
 
 ## Nothing at all happened
