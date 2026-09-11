@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842135744140">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842402715831">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../media/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.842135744140" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.842402715831" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842135744140" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842402715831" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842135744140" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842402715831" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -204,7 +204,9 @@
 | *&quot;No Discord profile found for @…&quot;* | The profile API hasn't seen that user. A coverage gap, not a fault on your side. |
 | *&quot;@… doesn't have a registered PluralKit system.&quot;* | Exactly that. |
 | *&quot;…'s current front is private.&quot;* | The system has front privacy switched on. Working as intended. |
-| *&quot;No character matching &quot;…&quot; was found in the catalog.&quot;* | Wrong spelling, or the character isn't owned on that account. The name option suggests as you type — use the suggestions. |">
+| *&quot;No Enka.Network record for UID `…`&quot;* | `/genshin` found no such account. The profile may be private, unindexed, or the UID is wrong. |
+| *&quot;This account has no visible characters.&quot;* | The account exists but shows nobody. Enable *Display all your characters* on the in-game Character Showcase, or pin a few, then retry. |
+| *&quot;Enka.Network is unavailable right now&quot;* | The upstream source is down. Sandrone says so rather than showing old figures as current; try again shortly. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -259,8 +261,16 @@
 <td>The system has front privacy switched on. Working as intended.</td>
 </tr>
 <tr>
-<td><em>&quot;No character matching &quot;…&quot; was found in the catalog.&quot;</em></td>
-<td>Wrong spelling, or the character isn&#x27;t owned on that account. The name option suggests as you type — use the suggestions.</td>
+<td><em>&quot;No Enka.Network record for UID <code translate="no" v-pre>…</code>&quot;</em></td>
+<td><code translate="no" v-pre>/genshin</code> found no such account. The profile may be private, unindexed, or the UID is wrong.</td>
+</tr>
+<tr>
+<td><em>&quot;This account has no visible characters.&quot;</em></td>
+<td>The account exists but shows nobody. Enable <em>Display all your characters</em> on the in-game Character Showcase, or pin a few, then retry.</td>
+</tr>
+<tr>
+<td><em>&quot;Enka.Network is unavailable right now&quot;</em></td>
+<td>The upstream source is down. Sandrone says so rather than showing old figures as current; try again shortly.</td>
 </tr>
 </tbody>
 </table>
@@ -274,6 +284,7 @@
 | *&quot;That doesn't look like a `twitter.com` or `x.com` post link.&quot;* | `/tweet` needs a link to a specific post, with `/status/&lt;id&gt;` in it — not a profile. |
 | *&quot;That doesn't look like a `bsky.app` or `xsky.app` post link.&quot;* | `/bluesky` needs a post link, with `/profile/…/post/…` in it. |
 | *&quot;That doesn't look like a domain or IP address. Try `example.com`.&quot;* | `/whois` couldn't make sense of the input. |
+| *&quot;That doesn't look like a Genshin UID — it should be 9–10 digits.&quot;* | `/genshin` checks the shape before looking anything up. The UID is on your in-game profile. |
 | *&quot;There are no letters or digits in that to re-case.&quot;* | `/case` was given punctuation only. |
 | *&quot;That isn't valid JSON&quot;* | With the parser's complaint, the line and column, and a caret under the exact character. |
 | *&quot;Invalid pattern&quot;* | `/regex` couldn't compile it, with the column and a caret. |
@@ -311,6 +322,10 @@
 <tr>
 <td><em>&quot;That doesn&#x27;t look like a domain or IP address. Try <code translate="no" v-pre>example.com</code>.&quot;</em></td>
 <td><code translate="no" v-pre>/whois</code> couldn&#x27;t make sense of the input.</td>
+</tr>
+<tr>
+<td><em>&quot;That doesn&#x27;t look like a Genshin UID — it should be 9–10 digits.&quot;</em></td>
+<td><code translate="no" v-pre>/genshin</code> checks the shape before looking anything up. The UID is on your in-game profile.</td>
 </tr>
 <tr>
 <td><em>&quot;There are no letters or digits in that to re-case.&quot;</em></td>
@@ -437,6 +452,13 @@
       <template #title><em>&quot;Something went wrong running <code translate="no" v-pre>/…</code>: …&quot;</em></template>
 <p>The catch-all: something failed that wasn&#x27;t anticipated. The message carries the underlying error, and the same thing is printed to the bot&#x27;s own console on the host.</p>
 <p>If you can reproduce it, that message is exactly what to put in a <a href="https://github.com/doughmination/sandrone/issues">bug report</a> — with the command and the options you used.</p>
+   </doc-step>
+</doc-steps>
+<h2 id="sandrone-just-refused">Sandrone just refused</h2>
+<doc-steps>
+   <doc-step id="no--absolutely-not--the-puppet-has-reviewed-your-request-it-has-declined" step-number="1">
+      <template #title><em>&quot;No.&quot;</em> / <em>&quot;Absolutely not.&quot;</em> / <em>&quot;The puppet has reviewed your request. It has declined.&quot;</em></template>
+<p>Not an error. Roughly one command in ten, Sandrone turns it down on purpose with a short gold panel instead of running it. There&#x27;s no cooldown — just run it again. See <a href="../commands/#sandrones-moods">Sandrone&#x27;s moods</a>.</p>
    </doc-step>
 </doc-steps>
 <h2 id="nothing-at-all-happened">Nothing at all happened</h2>

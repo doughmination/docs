@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842135744140">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842402715831">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../media/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.842135744140" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.842402715831" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842135744140" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842402715831" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842135744140" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.6.0.842135744140" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842402715831" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.6.0.842402715831" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -304,40 +304,54 @@ uv run python -m sandrone</code></pre>
 <div id="project-layout-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
 <pre translate="no" class="language-none"><code v-pre class="language-none">sandrone/          The bot itself
   __main__.py      Entry point; refuses to start without a token
-  client.py        Bot subclass, extension discovery, dev reload, shutdown
-  config.py        Environment and paths
-  doughchecks.py   The has_permissions decorator
-  errors.py        Global app-command error handler
-commands/          Always-on cogs (stats, links, admin)
-  cogs/            Everything that can be unloaded — one file per command area
+  checks.py        Permission checks, and the handlers for when one refuses
+  client.py        Bot subclass, prefix rules, extension discovery, dev reload, shutdown
+  config.py        Environment, paths, and which cogs are disabled
+  mood.py          Sandrone's personality — sassy refusals, /judge verdicts, incident lines
+  website.py       Serves the landing page and sitemap
+commands/          Always-on cogs (help, stats, links, admin)
+  cogs/            Everything that can be unloaded, in category folders
+    fun/           animals, gifs, the_game, eightball, judge, incidents
+    lookups/       github, codeberg, wikipedia, ubdict, whois
+    media/         bluesky, twitter, yt_dlp, pride
+    nerd/          pi
+    nsfw/          horny_gifs
+    people/        profile, pfp, userid, pluralkit
+    tools/         case, convert, decrypt, encrypt, json_format, qr, regex, translate
+    genshin.py     single-file cogs that don't warrant a folder sit at the top level
+    snippets.py
 utils/             Shared helpers
-  cog_state.py     Which cogs are disabled, persisted to cog_state.json
-  colors.py        Terminal colour
+  __init__.py      Terminal colour
+  choices.py       Choice sets that accept the same spellings on slash and prefix
+  components.py    Components V2 panels, plus markdown escaping and code blocks
   doughmination.py Client for the Doughmination API
   downloads.py     The download server, slot management, and expiry sweep
-  markdown.py      Escaping, code blocks, caret-under-the-error rendering
+  genshin_card.py  Renders the Genshin character card image
   pride.py         Flag rendering, ported from pride-pfp.xyz
+  usage.py         Turns a mistyped command into a panel showing its real shape
 tests/             pytest</code></pre>
 </doc-codeblock></div>
 <h3 id="the-cog-system">The cog system</h3>
 <p>Extensions are discovered by scanning <code translate="no" v-pre>commands/</code> and <code translate="no" v-pre>commands/cogs/</code> for <code translate="no" v-pre>.py</code> files — there is no registry to update. Add a file with a <code translate="no" v-pre>setup(bot)</code> function and it loads on the next start.</p>
 <p>The split matters:</p>
 <ul>
-<li><strong><code translate="no" v-pre>commands/</code></strong> — always loaded. <code translate="no" v-pre>stats</code>, <code translate="no" v-pre>links</code>, <code translate="no" v-pre>admin</code>.</li>
-<li><strong><code translate="no" v-pre>commands/cogs/</code></strong> — can be switched off at runtime with <code translate="no" v-pre>/cog unload</code>, which writes the name into <code translate="no" v-pre>cog_state.json</code> so it stays off across restarts.</li>
+<li><strong><code translate="no" v-pre>commands/</code></strong> — always loaded. <code translate="no" v-pre>stats</code>, <code translate="no" v-pre>links</code>, <code translate="no" v-pre>admin</code>. Scanned one level deep.</li>
+<li><strong><code translate="no" v-pre>commands/cogs/</code></strong> — can be switched off at runtime with <code translate="no" v-pre>/cog unload</code>, which writes the name into <code translate="no" v-pre>cog_state.json</code> so it stays off across restarts. Scanned recursively.</li>
 </ul>
+<p>Cogs in <code translate="no" v-pre>commands/cogs/</code> are grouped into category folders — <code translate="no" v-pre>fun/</code>, <code translate="no" v-pre>tools/</code>, <code translate="no" v-pre>lookups/</code>, <code translate="no" v-pre>media/</code>, <code translate="no" v-pre>people/</code>, <code translate="no" v-pre>nsfw/</code>. A cog&#x27;s <strong>handle</strong> — what <code translate="no" v-pre>/cog load</code> and <code translate="no" v-pre>/cog unload</code> take, and what&#x27;s stored in <code translate="no" v-pre>cog_state.json</code> — is its path under <code translate="no" v-pre>commands/cogs/</code> with the slashes written as dots: <code translate="no" v-pre>commands/cogs/fun/eightball.py</code> is <code translate="no" v-pre>fun.eightball</code>, and a file left at the top level like <code translate="no" v-pre>genshin.py</code> is just <code translate="no" v-pre>genshin</code>. Adding a category is only a new folder; there is nothing to register.</p>
 <p>A cog can also decline to load itself. The <code translate="no" v-pre>github</code> cog does exactly that when <code translate="no" v-pre>GITHUB_TOKEN</code> is unset: it prints a note and returns without registering, rather than failing loudly on every command.</p>
 <p>After any load or unload the command tree is re-synced with Discord.</p>
 <h3 id="dev-mode">Dev mode</h3>
-<p>With <code translate="no" v-pre>DEV_MODE=true</code>, the bot watches <code translate="no" v-pre>commands/cogs/</code> and reloads any file you save, then re-syncs the tree. Cogs you&#x27;ve disabled through <code translate="no" v-pre>/cog unload</code> are skipped rather than quietly coming back.</p>
+<p>With <code translate="no" v-pre>DEV_MODE=true</code>, the bot watches <code translate="no" v-pre>commands/cogs/</code> — category folders included — and reloads any file you save, then re-syncs the tree. Cogs you&#x27;ve disabled through <code translate="no" v-pre>/cog unload</code> are skipped rather than quietly coming back.</p>
 <p>You still need a restart for changes to <code translate="no" v-pre>sandrone/</code>, <code translate="no" v-pre>utils/</code>, or the always-on cogs in <code translate="no" v-pre>commands/</code>.</p>
 <h3 id="permission-checks">Permission checks</h3>
-<p><code translate="no" v-pre>doughchecks.has_permissions</code> is a thin wrapper over discord.py&#x27;s own check, with two deliberate differences:</p>
+<p><code translate="no" v-pre>checks.has_permissions</code> is a thin wrapper over discord.py&#x27;s own check, with two deliberate differences:</p>
 <ul>
 <li>It reads <code translate="no" v-pre>interaction.app_permissions</code>, so it&#x27;s checking what the <strong>bot</strong> can do in this channel, not what you can.</li>
 <li>It passes in DMs unless <code translate="no" v-pre>guildOnly=True</code>, because permissions don&#x27;t apply there.</li>
 </ul>
 <p>Failures raise <code translate="no" v-pre>BotMissingPermissions</code>, which the global handler turns into the <em>&quot;I am missing <code translate="no" v-pre>Embed Links</code>…&quot;</em> message, only visible to the person who ran the command. Checking up front is why a permission problem never leaves a half-sent reply.</p>
+<p>That handler lives in the same module. <code translate="no" v-pre>sandrone/checks.py</code> holds both halves of the lifecycle — the checks that decide whether a command runs, and the handlers that turn any failure, a refused check or a mistyped argument alike, into a reply — so adding a guard and giving it a voice is one edit rather than two.</p>
 <h3 id="the-download-server">The download server</h3>
 <p><code translate="no" v-pre>utils/downloads.py</code> runs a small aiohttp server alongside the bot, serving exactly one route: <code translate="no" v-pre>/{slot}/{name}</code>.</p>
 <ul>

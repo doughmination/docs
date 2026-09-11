@@ -25,7 +25,7 @@ Everything is a slash command, so Discord fills in the options as you type. The 
 - **Lookups** — GitHub, Codeberg, Wikipedia, Urban Dictionary, WHOIS, Discord profiles, PluralKit systems.
 - **Tools** — unit conversion, case conversion, JSON formatting, regex checking, translation, QR codes, encoding and decoding.
 - **Media** — YouTube downloads, X/Twitter and Bluesky embeds, pride flag profile pictures.
-- **Fun** — cats, GIFs, an 8-ball with an attitude, and The Game.
+- **Fun** — cats, GIFs, an 8-ball with an attitude, The Game, and `/judge`. Sandrone also has moods: she refuses roughly one command in ten, and occasionally says something stupid in whatever channel is busy.
 
 It works in servers, in DMs, and as a [*user install*](/projects/sandrone/setup) you can carry into any server.
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842135744140">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842402715831">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../media/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.842135744140" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.842402715831" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842135744140" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842402715831" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842135744140" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842402715831" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -167,15 +167,14 @@
 <p>Nothing here is stored about you. The only command that leaves anything on disk is <code translate="no" v-pre>/yt-dlp</code>, which hosts oversized downloads for a day; the <a href="../privacy/">Privacy Policy</a> and <a href="../downloads/">Hosted downloads</a> explain both.</p>
 <hr>
 <h2 id="bot">Bot</h2>
+<h3 id="help"><code translate="no" v-pre>/help</code></h3>
+<p>Everything Sandrone can do, in one panel. It opens on an overview; the dropdown switches between categories — the same groupings this page uses. Takes no options.</p>
 <h3 id="stats"><code translate="no" v-pre>/stats</code></h3>
 <p>Ping, uptime, hosting region, and the running version.</p>
 <p>The region is looked up once, the first time anyone runs the command after a restart, and then reused — so it costs nothing on subsequent runs. It reports where <em>the bot&#x27;s server</em> is, never anything about you. If the lookup fails it just says <code translate="no" v-pre>Unknown</code>.</p>
 <h3 id="links"><code translate="no" v-pre>/links</code></h3>
 <p>Every related link: inviting the bot, the support server, the website, and the source code. The footer carries the running version.</p>
 <p>Every link in that reply is on one of the domains listed in <a href="../official-links/">Official links</a>. If you ever see a <code translate="no" v-pre>/links</code> reply pointing somewhere else, you&#x27;re not talking to this bot.</p>
-<h3 id="pcspecs"><code translate="no" v-pre>/pcspecs</code></h3>
-<p>The owner&#x27;s setup, paged through with buttons: main PC specs, storage, peripherals, then laptop specs.</p>
-<p>Only the person who ran the command can use the buttons. After two minutes of no input the buttons grey out; run it again for a fresh set.</p>
 <hr>
 <h2 id="people">People</h2>
 <h3 id="profile-user"><code translate="no" v-pre>/profile [user]</code></h3>
@@ -431,23 +430,30 @@
 <p>You just lost the game. Posts all eight rules, so everyone else loses it too.</p>
 <h3 id="8ball-question"><code translate="no" v-pre>/8ball &lt;question&gt;</code></h3>
 <p>Ask Sandrone a yes-or-no question. Don&#x27;t expect her to be nice about it.</p>
+<h3 id="pi"><code translate="no" v-pre>/pi</code></h3>
+<p>The first 100 digits of pi, in ten-digit groups.</p>
+<h3 id="judge-user"><code translate="no" v-pre>/judge [user]</code></h3>
+<p>Sandrone delivers a verdict on someone. Defaults to you.</p>
+<p>It&#x27;s a personality feature, not a moderation tool — the verdicts are nonsense, and a given person always gets the same one, so she appears to hold a grudge she does not actually remember anywhere. A few people have hand-written verdicts; everyone else gets one picked from a pool. Nobody is pinged by being judged.</p>
+<hr>
+<h2 id="sandrones-moods">Sandrone&#x27;s moods</h2>
+<p>Sandrone has a personality layer that runs without you asking for it. None of it is stored anywhere and none of it survives a restart.</p>
+<p><strong>She refuses commands.</strong> Roughly one command in ten gets turned down with a short, rude panel instead of running. Run it again. There is no cooldown and no grudge; it&#x27;s a dice roll every time.</p>
+<p><strong>She has incidents.</strong> Every so often, in whatever channel has been active, Sandrone posts something stupid and unprompted — the puppet has found the vents, a tool has gone missing, that sort of thing. It only fires where the conversation already is, never in a dead channel or a DM.</p>
 <hr>
 <h2 id="genshin-impact">Genshin Impact</h2>
-<p>These read the <strong>owner&#x27;s</strong> Genshin accounts, not yours — think of them as a public showcase rather than a lookup tool. There are two, <strong>Main</strong> and <strong>Alt</strong>, and everything defaults to Main.</p>
-<p>Data comes from the Doughmination API, which tracks characters from the in-game showcase and keeps an ownership ledger behind it. Two things follow from that:</p>
+<h3 id="genshin-uid"><code translate="no" v-pre>/genshin &lt;uid&gt;</code></h3>
+<p>Look up any Genshin Impact account by UID and browse its characters as rendered cards. Also answers to <code translate="no" v-pre>/gi</code> and <code translate="no" v-pre>/uidlookup</code>.</p>
+<p>The UID is the 9–10 digit number on your in-game profile. Sandrone checks the shape before asking anything, so a typo comes back straight away rather than as a failed lookup.</p>
+<p><strong>Reading the card.</strong> Each character is drawn as an image — build, weapon and artifacts — with the accent colour following their element. The line underneath gives the name, level, where the data came from, and your position in the roster:</p>
 <ul>
-<li>A character who isn&#x27;t pinned to the in-game showcase shows as owned, but without a live build.</li>
-<li>If the upstream showcase service is unreachable, figures come from the ledger instead and are marked as last-known.</li>
+<li><span class="docs-emoji">&#x1F7E2;</span> <strong>Live showcase</strong> — pinned to the in-game Character Showcase, so the build is current.</li>
+<li><span class="docs-emoji">&#x26AA;</span> <strong>Last known</strong> — owned, but not currently pinned, so the build is the last one seen.</li>
 </ul>
-<h3 id="genshin-stats-account"><code translate="no" v-pre>/genshin stats [account]</code></h3>
-<p>Overview of an account: UID, adventure rank, how many characters are owned out of the total, how many are tracked live, and how many are last-known only. Flags it when only pinned showcase characters are visible, or when the numbers are being served from the ledger.</p>
-<h3 id="genshin-roster-account"><code translate="no" v-pre>/genshin roster [account]</code></h3>
-<p>Every character owned on an account, grouped by element.</p>
-<h3 id="genshin-main-chara-name"><code translate="no" v-pre>/genshin main-chara &lt;name&gt;</code></h3>
-<p>Character detail on the Main account, including weapon and artifacts. The name suggests as you type, listing only characters actually owned, highest level first.</p>
-<p>Artifacts only appear for characters pinned to the in-game showcase — the embed says so where they&#x27;re missing.</p>
-<h3 id="genshin-alt-chara-name"><code translate="no" v-pre>/genshin alt-chara &lt;name&gt;</code></h3>
-<p>The same, on the Alt account.</p>
+<p><strong>Moving around.</strong> ◀ and ▶ step through the roster, highest level first. The dropdown jumps straight to a character; on accounts with more than 25, <strong>◀ names</strong> and <strong>names ▶</strong> page the dropdown itself.</p>
+<p>Anyone can press the buttons, not just whoever ran the command, and they keep working after a restart rather than going dead.</p>
+<p><strong>If nothing comes back.</strong> An account with no visible characters needs <em>Display all your characters</em> enabled on the in-game Character Showcase, or a few pinned. A UID with no record at all is usually a private or unindexed profile — or a wrong number.</p>
+<p>Data comes from the Doughmination API, which sources it from Enka.Network. When Enka is unreachable Sandrone says so rather than showing stale figures as current.</p>
 <hr>
 <h2 id="age-restricted-18">Age-restricted 18+</h2>
 <p>Discord decides who may run these, and where, from your account&#x27;s age setting and the channel&#x27;s rating. Sandrone does not record who used them.</p>
@@ -457,12 +463,15 @@
 <h2 id="owner-only--restricted">Owner only — restricted</h2>
 <p>These manage the bot itself and only answer to the owner. They are listed for completeness.</p>
 <p>Sandrone&#x27;s commands are grouped into modules — cogs — that can be switched on and off without restarting the bot. That&#x27;s how a broken or noisy command gets pulled at short notice.</p>
+<p>Modules are named by category, like <code translate="no" v-pre>fun.eightball</code> or <code translate="no" v-pre>tools.regex</code>; a couple sit at the top level and are just <code translate="no" v-pre>genshin</code> and <code translate="no" v-pre>snippets</code>. Both <code translate="no" v-pre>load</code> and <code translate="no" v-pre>unload</code> suggest the valid names as you type.</p>
 <h3 id="cog-list"><code translate="no" v-pre>/cog list</code></h3>
 <p>Show which command modules are loaded, and whether that survives a restart.</p>
 <h3 id="cog-load-name"><code translate="no" v-pre>/cog load &lt;name&gt;</code></h3>
 <p>Switch a command module back on. Stays on across restarts.</p>
 <h3 id="cog-unload-name"><code translate="no" v-pre>/cog unload &lt;name&gt;</code></h3>
 <p>Switch a command module off. Stays off across restarts.</p>
+<h3 id="incident"><code translate="no" v-pre>/incident</code></h3>
+<p>Force a puppet incident into the last active channel, instead of waiting for one to happen on its own. Does nothing if there&#x27;s no channel that currently qualifies.</p>
 <hr>
 <h2 id="something-missing">Something missing?</h2>
 <p>Commands come and go as the bot gets worked on. The <a href="https://github.com/doughmination/sandrone">bot&#x27;s repository</a> is the source of truth.</p>

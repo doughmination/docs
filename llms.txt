@@ -19,7 +19,7 @@
 - [Error messages](https://docs.doughmination.gay/projects/sandrone/errors.md): What Sandrone says when something goes wrong, and what it actually means. Most of these are the bot telling you something useful rather than falling over.
 - [Development](https://docs.doughmination.gay/projects/sandrone/development.md): How Sandrone is put together, and how to run it locally if you're contributing.
 - [Terms of Service](https://docs.doughmination.gay/projects/sandrone/tos.md): Effective 6 September 2026
-- [Privacy Policy](https://docs.doughmination.gay/projects/sandrone/privacy.md): Effective 6 September 2026
+- [Privacy Policy](https://docs.doughmination.gay/projects/sandrone/privacy.md): Effective 11 September 2026
 
 ### pkviewer
 

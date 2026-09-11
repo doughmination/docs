@@ -10,6 +10,10 @@ Nothing here is stored about you. The only command that leaves anything on disk 
 
 ## Bot
 
+### `/help`
+
+Everything Sandrone can do, in one panel. It opens on an overview; the dropdown switches between categories — the same groupings this page uses. Takes no options.
+
 ### `/stats`
 
 Ping, uptime, hosting region, and the running version.
@@ -21,12 +25,6 @@ The region is looked up once, the first time anyone runs the command after a res
 Every related link: inviting the bot, the support server, the website, and the source code. The footer carries the running version.
 
 Every link in that reply is on one of the domains listed in [Official links](/projects/sandrone/official-links/). If you ever see a `/links` reply pointing somewhere else, you're not talking to this bot.
-
-### `/pcspecs`
-
-The owner's setup, paged through with buttons: main PC specs, storage, peripherals, then laptop specs.
-
-Only the person who ran the command can use the buttons. After two minutes of no input the buttons grey out; run it again for a fresh set.
 
 ---
 
@@ -267,34 +265,48 @@ You just lost the game. Posts all eight rules, so everyone else loses it too.
 
 Ask Sandrone a yes-or-no question. Don't expect her to be nice about it.
 
+### `/pi`
+
+The first 100 digits of pi, in ten-digit groups.
+
+### `/judge [user]`
+
+Sandrone delivers a verdict on someone. Defaults to you.
+
+It's a personality feature, not a moderation tool — the verdicts are nonsense, and a given person always gets the same one, so she appears to hold a grudge she does not actually remember anywhere. A few people have hand-written verdicts; everyone else gets one picked from a pool. Nobody is pinged by being judged.
+
+---
+
+## Sandrone's moods
+
+Sandrone has a personality layer that runs without you asking for it. None of it is stored anywhere and none of it survives a restart.
+
+**She refuses commands.** Roughly one command in ten gets turned down with a short, rude panel instead of running. Run it again. There is no cooldown and no grudge; it's a dice roll every time.
+
+**She has incidents.** Every so often, in whatever channel has been active, Sandrone posts something stupid and unprompted — the puppet has found the vents, a tool has gone missing, that sort of thing. It only fires where the conversation already is, never in a dead channel or a DM.
+
 ---
 
 ## Genshin Impact
 
-These read the **owner's** Genshin accounts, not yours — think of them as a public showcase rather than a lookup tool. There are two, **Main** and **Alt**, and everything defaults to Main.
+### `/genshin <uid>`
 
-Data comes from the Doughmination API, which tracks characters from the in-game showcase and keeps an ownership ledger behind it. Two things follow from that:
+Look up any Genshin Impact account by UID and browse its characters as rendered cards. Also answers to `/gi` and `/uidlookup`.
 
-- A character who isn't pinned to the in-game showcase shows as owned, but without a live build.
-- If the upstream showcase service is unreachable, figures come from the ledger instead and are marked as last-known.
+The UID is the 9–10 digit number on your in-game profile. Sandrone checks the shape before asking anything, so a typo comes back straight away rather than as a failed lookup.
 
-### `/genshin stats [account]`
+**Reading the card.** Each character is drawn as an image — build, weapon and artifacts — with the accent colour following their element. The line underneath gives the name, level, where the data came from, and your position in the roster:
 
-Overview of an account: UID, adventure rank, how many characters are owned out of the total, how many are tracked live, and how many are last-known only. Flags it when only pinned showcase characters are visible, or when the numbers are being served from the ledger.
+- 🟢 **Live showcase** — pinned to the in-game Character Showcase, so the build is current.
+- ⚪ **Last known** — owned, but not currently pinned, so the build is the last one seen.
 
-### `/genshin roster [account]`
+**Moving around.** ◀ and ▶ step through the roster, highest level first. The dropdown jumps straight to a character; on accounts with more than 25, **◀ names** and **names ▶** page the dropdown itself.
 
-Every character owned on an account, grouped by element.
+Anyone can press the buttons, not just whoever ran the command, and they keep working after a restart rather than going dead.
 
-### `/genshin main-chara <name>`
+**If nothing comes back.** An account with no visible characters needs *Display all your characters* enabled on the in-game Character Showcase, or a few pinned. A UID with no record at all is usually a private or unindexed profile — or a wrong number.
 
-Character detail on the Main account, including weapon and artifacts. The name suggests as you type, listing only characters actually owned, highest level first.
-
-Artifacts only appear for characters pinned to the in-game showcase — the embed says so where they're missing.
-
-### `/genshin alt-chara <name>`
-
-The same, on the Alt account.
+Data comes from the Doughmination API, which sources it from Enka.Network. When Enka is unreachable Sandrone says so rather than showing stale figures as current.
 
 ---
 
@@ -314,6 +326,8 @@ These manage the bot itself and only answer to the owner. They are listed for co
 
 Sandrone's commands are grouped into modules — cogs — that can be switched on and off without restarting the bot. That's how a broken or noisy command gets pulled at short notice.
 
+Modules are named by category, like `fun.eightball` or `tools.regex`; a couple sit at the top level and are just `genshin` and `snippets`. Both `load` and `unload` suggest the valid names as you type.
+
 ### `/cog list`
 
 Show which command modules are loaded, and whether that survives a restart.
@@ -325,6 +339,10 @@ Switch a command module back on. Stays on across restarts.
 ### `/cog unload <name>`
 
 Switch a command module off. Stays off across restarts.
+
+### `/incident`
+
+Force a puppet incident into the last active channel, instead of waiting for one to happen on its own. Does nothing if there's no channel that currently qualifies.
 
 ---
 
