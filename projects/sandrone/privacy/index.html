@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842402715831">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842975885688">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Privacy Policy | Doughmination Docs</title>
     <meta name="title" content="Privacy Policy | Doughmination Docs">
-    <meta name="description" content="Effective 11 September 2026">
+    <meta name="description" content="Effective 17 September 2026">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.doughmination.gay/projects/sandrone/privacy/">
@@ -22,7 +22,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.doughmination.gay/projects/sandrone/privacy/">
     <meta property="og:title" content="Privacy Policy | Doughmination Docs">
-    <meta property="og:description" content="Effective 11 September 2026">
+    <meta property="og:description" content="Effective 17 September 2026">
     <meta property="og:site_name" content="Doughmination Docs">
     <meta property="og:locale" content="en_US">
 
@@ -30,7 +30,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.doughmination.gay/projects/sandrone/privacy/">
     <meta name="twitter:title" content="Privacy Policy | Doughmination Docs">
-    <meta name="twitter:description" content="Effective 11 September 2026">
+    <meta name="twitter:description" content="Effective 17 September 2026">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.doughmination.gay/projects/sandrone/privacy.md">
@@ -38,11 +38,11 @@
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../../media/favicon.png" />
-    <link href="../../../resources/css/retype.css?v=4.6.0.842402715831" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.842975885688" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842402715831" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.842975885688" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842402715831" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.842975885688" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -163,11 +163,17 @@
                 <!-- Page content  -->
 <h1 id="privacy-policy">Privacy Policy</h1>
 <blockquote>
-<p>Effective 11 September 2026</p>
+<p>Effective 17 September 2026</p>
 </blockquote>
-<p>Sandrone is a personal, hobby Discord bot. It has no database, no analytics, and no user accounts. It writes three kinds of file to its host, none of them about you, and this policy explains the little that does happen.</p>
+<p>Sandrone is a personal, hobby Discord bot. It has no analytics and no user accounts. It keeps three small local databases and writes a couple of kinds of file to its host, and this policy explains what&#x27;s in each of them.</p>
 <h3 id="what-sandrone-stores-about-you">What Sandrone stores about you</h3>
-<p>Nothing. There is no database, no log of who ran what, and no profile kept on any user. The bot writes <code translate="no" v-pre>cog_state.json</code>, which records which command modules the owner has switched off; it writes the temporary media files described below; and it caches the game artwork <code translate="no" v-pre>/genshin</code> draws its cards from, which is Genshin Impact character art, not anything of yours. None of the three contains user data of any kind: nothing links a stored file to the person who requested it.</p>
+<p>Sandrone keeps three small local databases on its host, alongside the files described below.</p>
+<ul>
+<li><strong>mods</strong>, per server: the user IDs and role IDs a server&#x27;s own admins have granted permission to change Sandrone&#x27;s settings there, via <code translate="no" v-pre>/mod add</code>. Nothing is added unless someone with Manage Server puts it there, and <code translate="no" v-pre>/mod reset</code> clears a server&#x27;s list at any time.</li>
+<li><strong>incidents</strong>, per server: the IDs of channels a server&#x27;s admins have told the puppet-incident feature to skip, via <code translate="no" v-pre>/incidents ignore</code>. Just channel IDs — no user data.</li>
+<li><strong>errors</strong>, one log shared across every server: up to the 50 most recent distinct faults, kept until the bot owner clears them with <code translate="no" v-pre>/debug errors clear</code>. Each entry records the command that failed, the error text, a traceback, and a label — name and ID — for the user, channel and server involved, so the fault can be found and fixed. It is visible only to the bot owner, through owner-only <code translate="no" v-pre>/debug</code> commands, and is never posted publicly.</li>
+</ul>
+<p>Beyond those, the bot writes <code translate="no" v-pre>cog_state.json</code>, which records which command modules the owner has switched off, and it caches the game artwork <code translate="no" v-pre>/genshin</code> draws its cards from — Genshin Impact character art, not anything of yours. Neither of those two contains user data of any kind.</p>
 <h3 id="hosted-downloads-yt-dlp">Hosted downloads (<code translate="no" v-pre>/yt-dlp</code>)</h3>
 <p><code translate="no" v-pre>/yt-dlp</code> fetches a YouTube link as a file. When the result is small enough it is attached to the reply and nothing is kept. When it is too big to attach, the file is saved on the bot&#x27;s host and the reply links to it instead.</p>
 <ul>
@@ -180,7 +186,7 @@
 <p>If you would rather a download not sit on the host at all, keep it under your server&#x27;s attachment limit, or do not use the command. <a href="../downloads/">Hosted downloads</a> covers the mechanics in full.</p>
 <h3 id="what-discord-sends-when-you-run-a-command">What Discord sends when you run a command</h3>
 <p>When you use a slash command, Discord delivers your user ID, your username, and whatever text you typed into the command&#x27;s options. Sandrone uses these in memory to build its reply and then discards them. They are not written down, not retained after the reply is sent, and not shared with anyone beyond the third parties listed below.</p>
-<p>The one thing that can outlast the reply is a hosted <code translate="no" v-pre>/yt-dlp</code> file, covered above, and that is the media only, never your ID or the text you typed.</p>
+<p>Two things can outlast the reply. One is a hosted <code translate="no" v-pre>/yt-dlp</code> file, covered above — the media only, never your ID or the text you typed. The other is an entry in the errors database, covered above, if the command itself failed: that entry does record your name, your ID, and whatever you typed if that&#x27;s what caused the fault.</p>
 <p>Sandrone does not have the message content intent. It cannot read your conversations — only what you type into a slash command&#x27;s options.</p>
 <p>For the puppet-incident feature (<a href="../commands/#sandrones-moods">Sandrone&#x27;s moods</a>), the bot does notice when a message is sent, so it knows which channel is currently active. All it keeps is a single &quot;most recently active channel&quot; pointer, held in memory and wiped on restart. It records no message content — it cannot read any — no author, and no history; the previous channel is simply overwritten by the next.</p>
 <h3 id="third-party-services">Third-party services</h3>
@@ -203,14 +209,14 @@
 </ul>
 <p>One thing worth being explicit about: <code translate="no" v-pre>/stats</code> calls <strong>ip-api.com</strong> to report where the bot&#x27;s own server is hosted. It never sends your IP address, and it cannot, because the bot does not have it. The result is cached until the next restart, so it is asked at most once per run of the bot.</p>
 <h3 id="logs">Logs</h3>
-<p>When a command fails, the bot prints the command&#x27;s name and the error text to its own console on the host machine. That output can include a search term you passed if the term is what caused the error. It is not stored long-term, not published, and not linked to your account.</p>
+<p>When a command fails, the bot prints the same details to its own console on the host machine and records them in the errors database described above: the command&#x27;s name, the error text, which can include a search term you passed if that&#x27;s what caused it, and your name and ID. Console output is not stored beyond the terminal&#x27;s own scrollback and is not published; the database entry persists until it ages out past 50 entries or the owner clears it.</p>
 <p>The console also records module loads and unloads, the count of expired downloads removed by each sweep, and the channel a puppet incident was posted into (its name and server, never a user). None of it mentions a user. Nothing else is logged.</p>
 <h3 id="age-restricted-commands">Age-restricted commands</h3>
 <p>A small number of commands are marked age-restricted. Discord itself decides who may run them and where, based on your account age setting and the channel&#x27;s rating. Sandrone does not record who used them.</p>
 <h3 id="children">Children</h3>
 <p>Sandrone is used through Discord, which requires its users to be at least 13, or older where local law says so. It is not directed at children, and since it collects nothing, it holds no children&#x27;s data to speak of.</p>
 <h3 id="your-rights">Your rights</h3>
-<p>Because nothing about you is stored, there is nothing to export, correct, or delete, so a deletion request would have no data to act on. If you would like to check that for yourself, the bot&#x27;s entire source is public and linked at the bottom of this page.</p>
+<p>Most of what Sandrone touches about you passes through in memory and is gone. What can persist is a moderator entry in the <strong>mods</strong> database, if a server&#x27;s admin put you there, or your name and ID in an <strong>errors</strong> entry, if a command you ran happened to fail. Email <code translate="no" v-pre>admin@doughmination.win</code> to ask what&#x27;s held about you or to have it removed; a moderator entry can also just be revoked with <code translate="no" v-pre>/mod remove</code> by anyone with Manage Server in that server. The bot&#x27;s entire source is public and linked at the bottom of this page, if you would like to check any of this for yourself.</p>
 <p>Your data on Discord itself is a separate matter, governed by <a href="https://discord.com/privacy">Discord&#x27;s Privacy Policy</a>.</p>
 <h3 id="changes">Changes</h3>
 <p>If this policy changes, the effective date above changes with it, and the edit will be visible in the site&#x27;s commit history.</p>

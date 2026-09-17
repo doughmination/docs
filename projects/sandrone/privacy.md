@@ -1,10 +1,16 @@
-> Effective 11 September 2026
+> Effective 17 September 2026
 
-Sandrone is a personal, hobby Discord bot. It has no database, no analytics, and no user accounts. It writes three kinds of file to its host, none of them about you, and this policy explains the little that does happen.
+Sandrone is a personal, hobby Discord bot. It has no analytics and no user accounts. It keeps three small local databases and writes a couple of kinds of file to its host, and this policy explains what's in each of them.
 
 ### What Sandrone stores about you
 
-Nothing. There is no database, no log of who ran what, and no profile kept on any user. The bot writes `cog_state.json`, which records which command modules the owner has switched off; it writes the temporary media files described below; and it caches the game artwork `/genshin` draws its cards from, which is Genshin Impact character art, not anything of yours. None of the three contains user data of any kind: nothing links a stored file to the person who requested it.
+Sandrone keeps three small local databases on its host, alongside the files described below.
+
+- **mods**, per server: the user IDs and role IDs a server's own admins have granted permission to change Sandrone's settings there, via `/mod add`. Nothing is added unless someone with Manage Server puts it there, and `/mod reset` clears a server's list at any time.
+- **incidents**, per server: the IDs of channels a server's admins have told the puppet-incident feature to skip, via `/incidents ignore`. Just channel IDs — no user data.
+- **errors**, one log shared across every server: up to the 50 most recent distinct faults, kept until the bot owner clears them with `/debug errors clear`. Each entry records the command that failed, the error text, a traceback, and a label — name and ID — for the user, channel and server involved, so the fault can be found and fixed. It is visible only to the bot owner, through owner-only `/debug` commands, and is never posted publicly.
+
+Beyond those, the bot writes `cog_state.json`, which records which command modules the owner has switched off, and it caches the game artwork `/genshin` draws its cards from — Genshin Impact character art, not anything of yours. Neither of those two contains user data of any kind.
 
 ### Hosted downloads (`/yt-dlp`)
 
@@ -22,7 +28,7 @@ If you would rather a download not sit on the host at all, keep it under your se
 
 When you use a slash command, Discord delivers your user ID, your username, and whatever text you typed into the command's options. Sandrone uses these in memory to build its reply and then discards them. They are not written down, not retained after the reply is sent, and not shared with anyone beyond the third parties listed below.
 
-The one thing that can outlast the reply is a hosted `/yt-dlp` file, covered above, and that is the media only, never your ID or the text you typed.
+Two things can outlast the reply. One is a hosted `/yt-dlp` file, covered above — the media only, never your ID or the text you typed. The other is an entry in the errors database, covered above, if the command itself failed: that entry does record your name, your ID, and whatever you typed if that's what caused the fault.
 
 Sandrone does not have the message content intent. It cannot read your conversations — only what you type into a slash command's options.
 
@@ -51,7 +57,7 @@ One thing worth being explicit about: `/stats` calls **ip-api.com** to report wh
 
 ### Logs
 
-When a command fails, the bot prints the command's name and the error text to its own console on the host machine. That output can include a search term you passed if the term is what caused the error. It is not stored long-term, not published, and not linked to your account.
+When a command fails, the bot prints the same details to its own console on the host machine and records them in the errors database described above: the command's name, the error text, which can include a search term you passed if that's what caused it, and your name and ID. Console output is not stored beyond the terminal's own scrollback and is not published; the database entry persists until it ages out past 50 entries or the owner clears it.
 
 The console also records module loads and unloads, the count of expired downloads removed by each sweep, and the channel a puppet incident was posted into (its name and server, never a user). None of it mentions a user. Nothing else is logged.
 
@@ -65,7 +71,7 @@ Sandrone is used through Discord, which requires its users to be at least 13, or
 
 ### Your rights
 
-Because nothing about you is stored, there is nothing to export, correct, or delete, so a deletion request would have no data to act on. If you would like to check that for yourself, the bot's entire source is public and linked at the bottom of this page.
+Most of what Sandrone touches about you passes through in memory and is gone. What can persist is a moderator entry in the **mods** database, if a server's admin put you there, or your name and ID in an **errors** entry, if a command you ran happened to fail. Email `admin@doughmination.win` to ask what's held about you or to have it removed; a moderator entry can also just be revoked with `/mod remove` by anyone with Manage Server in that server. The bot's entire source is public and linked at the bottom of this page, if you would like to check any of this for yourself.
 
 Your data on Discord itself is a separate matter, governed by [Discord's Privacy Policy](https://discord.com/privacy).
 

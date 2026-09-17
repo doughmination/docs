@@ -1,4 +1,4 @@
-> Effective 6 September 2026
+> Effective 17 September 2026
 
 Sandrone is a free, personal project run for fun. These terms cover the use of the bot in any Discord server or installation.
 
