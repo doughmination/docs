@@ -2,13 +2,22 @@
 name: Mirror
 
 on:
-  push:
-    branches:
-      - main
+  # Mirror only once Retype has pushed the built site to the `retype` branch,
+  # so both `main` and `retype` go across together. (Retype pushes with
+  # GITHUB_TOKEN, which never triggers `on: push` workflows.)
+  workflow_run:
+    workflows:
+      - Publish Retype powered website to GitHub Pages
+    types:
+      - completed
+  workflow_dispatch:
 
 jobs:
   mirror:
-    if: github.repository == 'doughmination/docs'
+    if: >-
+      github.repository == 'doughmination/docs' &&
+      (github.event_name != 'workflow_run' ||
+       github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
 
     permissions:
