@@ -1,7 +1,7 @@
 ---
 order: 1000
 label: Sandrone
-icon: https://raw.githubusercontent.com/doughmination/sandrone/refs/heads/main/assets/avatar.png
+icon: https://raw.githubusercontent.com/doughmination/sandrone/refs/heads/main/web/assets/avatar.png
 ---
 
 Sandrone is an all-in-one Discord bot: lookups, text and developer tools, media embeds, pride flag avatars, YouTube downloads, and a handful of things that exist purely for fun.
