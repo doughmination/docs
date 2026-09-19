@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843159771101">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 4.6.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Start here | Doughmination Docs</title>
+    <meta name="title" content="Start here | Doughmination Docs">
+    <meta name="description" content="This page assumes you have never used a configuration format before, and that \"the terminal\" is a place you visit reluctantly. Nothing here is skippable — read it top to bottom once and you will have a working config file you can actually use.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://docs.doughmination.gay/jpcl/start/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.doughmination.gay/sitemap.xml">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://docs.doughmination.gay/jpcl/start/">
+    <meta property="og:title" content="Start here | Doughmination Docs">
+    <meta property="og:description" content="This page assumes you have never used a configuration format before, and that \"the terminal\" is a place you visit reluctantly. Nothing here is skippable — read it top to bottom once and you will have a working config file you can actually use.">
+    <meta property="og:site_name" content="Doughmination Docs">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://docs.doughmination.gay/jpcl/start/">
+    <meta name="twitter:title" content="Start here | Doughmination Docs">
+    <meta name="twitter:description" content="This page assumes you have never used a configuration format before, and that \"the terminal\" is a place you visit reluctantly. Nothing here is skippable — read it top to bottom once and you will have a working config file you can actually use.">
+
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://docs.doughmination.gay/jpcl/start.md">
+
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
+
+    <link id="retype-favicon" rel="icon" href="../../media/favicon.png" />
+    <link href="../../resources/css/retype.css?v=4.6.0.843159771101" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.843159771101" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.843159771101" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.843159771101" defer></script>
+
+    <!--
+      Force dark mode site-wide.
+
+      Retype's own bootstrap decides the colour scheme from, in order:
+        1. localStorage["retype_scheme"]  ("dark" | "light"; absent means "system")
+        2. the `dark` / `light` class already on <html>
+        3. the visitor's prefers-color-scheme
+
+      Pinning (1) and (2) to dark makes every later check agree, so the page
+      never renders light even for a moment. The `scheme.mode` project setting
+      does the same thing natively, but it is Retype Pro only.
+    -->
+    <script data-cfasync="false">
+      (function () {
+        try { localStorage.setItem("retype_scheme", "dark"); } catch (e) {}
+        var cl = document.documentElement.classList;
+        cl.remove("light");
+        cl.add("dark");
+      })();
+    </script>
+
+    <style>
+      /* Hide the light/dark switch: there is nothing left for it to switch to. */
+      [aria-label="Change theme"],
+      [title="Change theme"],
+      .scheme-menu-item,
+      .scheme-menu-item-text {
+        display: none !important;
+      }
+    </style>
+
+    <!-- JPCL palette, matching jpcl-lang/web. Retype's own `theme:` setting is Pro only. -->
+    <link rel="stylesheet" href="/assets/css/jpcl-theme.css">
+
+</head>
+<body>
+    <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
+    <div class="absolute bottom-0 left-0" style="top: 5rem; right: 50%"></div>
+
+    <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-header-bg border-b border-header-border md:h-20">
+        <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+            <!-- Mobile menu button skeleton -->
+            <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-hidden rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+            <div v-cloak id="retype-sidebar-left-toggle-button"></div>
+    
+            <!-- Logo -->
+            <div class="flex items-center justify-between h-full py-2 md:w-75">
+                <div class="flex items-center px-2 md:px-6">
+                    <a id="retype-branding-logo" href="https://docs.doughmination.gay/" class="flex items-center leading-snug text-xl">
+                        <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
+                            <img class="max-h-10 md:inline-block" src="../../media/favicon.png" alt="" width="40" height="40">
+                        </span>
+                        <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Doughmination Docs</span>
+                    </a>
+                </div>
+    
+                <span class="hidden h-8 border-r md:inline-block border-base-border"></span>
+            </div>
+    
+            <div class="flex justify-between md:grow">
+                <!-- Top Nav -->
+                <nav id="retype-header-nav" class="hidden md:flex">
+                    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                        <li class="mr-6">
+                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                </svg>
+                                <span>Home</span>
+                            </a>
+                        </li>
+    
+                    </ul>
+                </nav>
+    
+                <div v-cloak class="flex justify-end grow">
+                    <div id="retype-mobile-search-button"></div>
+                    <doc-search-desktop></doc-search-desktop>
+    
+                    <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                    <doc-history></doc-history>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="retype-container" class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+        <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-sidebar-left-bg border-sidebar-left-border sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton">
+        
+            <div class="flex items-center h-16 px-6">
+                <input id="retype-filter-input-mock" class="w-full h-10 pl-8 px-3 py-2 transition-colors duration-200 ease-linear bg-filter-bg border border-filter-border rounded-lg shadow-none md:text-sm hover:border-filter-border-hover focus:outline-hidden focus:border-filter-border-focus placeholder-filter-placeholder" type="text">
+            </div>
+        
+            <div class="pl-6 mt-1 mb-4">
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            </div>
+        
+            <div class="shrink-0 mt-auto bg-transparent dark:border-base-border">
+                <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                    <span class="text-xs whitespace-nowrap">Powered by</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Sidebar component -->
+        <doc-sidebar v-cloak>
+            <template #sidebar-footer>
+                <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-base-border">
+        
+                    <div class="py-3 px-6 md:hidden border-b dark:border-base-border">
+                        <nav>
+                            <ul class="flex flex-wrap justify-center items-center">
+                                <li class="mr-6">
+                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                        </svg>
+                                        <span>Home</span>
+                                    </a>
+                                </li>
+        
+                            </ul>
+                        </nav>
+                    </div>
+        
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </template>
+        </doc-sidebar>
+
+        <div class="grow min-w-0 bg-body-bg">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+<div class="flex">
+    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
+        <main class="relative pb-12 lg:pt-2">
+            <div class="relative retype-markdown" id="retype-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="retype-sidebar-right-toggle"></div>
+                <doc-page-actions></doc-page-actions>
+
+                <!-- Page content  -->
+<h1 id="start-here">Start here</h1>
+<p>This page assumes you have never used a configuration format before, and that &quot;the terminal&quot; is a place you visit reluctantly. Nothing here is skippable — read it top to bottom once and you will have a working config file you can actually use.</p>
+<p>If you already know what JSON is and just want the rules, go to <a href="../syntax/"><em>Writing .jp files</em></a> instead.</p>
+<hr>
+<h2 id="what-a-config-file-is-for">What a config file is for</h2>
+<p>A program often needs to be told things: which server to run on, which features to switch off, who is allowed to use it. You <em>could</em> write those facts into the code itself, but then changing one means editing the program.</p>
+<p>A <strong>config file</strong> is a separate file that holds those settings. The program reads it when it starts. You change the file, restart the program, and the behaviour changes — no code touched.</p>
+<p>JPCL is one way to write that file. A JPCL file ends in <code translate="no" v-pre>.jp</code>.</p>
+<hr>
+<h2 id="what-a-jp-file-looks-like">What a <code translate="no" v-pre>.jp</code> file looks like</h2>
+<p>Here is a complete, valid one. Read it before reading the explanation — most of it explains itself.</p>
+<div id="what-a-jp-file-looks-like-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># Settings for my Discord bot.
+
+[SERVER_ID]
+prefix: &quot;!&quot;
+log_channel:
+disabled_users: [9892, 82082, 8209]</code></pre>
+</doc-codeblock></div>
+<p>Line by line:</p>
+<retype-table copy-text="| Line | What it is |
+|---|---|
+| `# Settings for my Discord bot.` | A **comment**. Everything after a `#` is ignored. Notes to yourself go here. |
+| `[SERVER_ID]` | A **section header**. It opens a named group. Everything below it belongs to that group, until the next header. |
+| `prefix: &quot;!&quot;` | An **entry**: a *key* (`prefix`), a colon, and a *value* (`&quot;!&quot;`). |
+| `log_channel:` | An entry with **no value**. Legal, and it means &quot;this exists but isn't set yet&quot;. |
+| `disabled_users: [...]` | An entry whose value is a **list**. Square brackets, commas between items. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Line</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre># Settings for my Discord bot.</code></td>
+<td>A <strong>comment</strong>. Everything after a <code translate="no" v-pre>#</code> is ignored. Notes to yourself go here.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>[SERVER_ID]</code></td>
+<td>A <strong>section header</strong>. It opens a named group. Everything below it belongs to that group, until the next header.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>prefix: &quot;!&quot;</code></td>
+<td>An <strong>entry</strong>: a <em>key</em> (<code translate="no" v-pre>prefix</code>), a colon, and a <em>value</em> (<code translate="no" v-pre>&quot;!&quot;</code>).</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>log_channel:</code></td>
+<td>An entry with <strong>no value</strong>. Legal, and it means &quot;this exists but isn&#x27;t set yet&quot;.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>disabled_users: [...]</code></td>
+<td>An entry whose value is a <strong>list</strong>. Square brackets, commas between items.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p>That is genuinely most of the format.</p>
+<hr>
+<h2 id="step-1--pick-a-language">Step 1 — pick a language</h2>
+<p>JPCL has three implementations. They are the same format — a file written by one is read identically by the others — so pick whichever language you are writing your program in.</p>
+<p>If you have no idea, pick <strong>Python</strong>. It is the one most people learn first and the examples are shortest.</p>
+<doc-tabs>
+<doc-tab v-cloak id="python">
+<template #title>Python</template>
+<p>You need <strong>Python 3.14 or newer</strong>. To check, open a terminal and run:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">python --version</code></pre>
+</doc-codeblock></div>
+<p>If that prints <code translate="no" v-pre>Python 3.14.0</code> or higher, you are fine. If it says the command is not found, or prints an older number, install Python from <a href="https://www.python.org/downloads/"><em>python.org/downloads</em></a>.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>On Windows, tick <strong>&quot;Add python.exe to PATH&quot;</strong> in the installer. If you don&#x27;t, the terminal won&#x27;t find it and nothing on this page will work.</p>
+        </div>
+    </div>
+</div>
+</doc-tab>
+<doc-tab v-cloak id="javascript">
+<template #title>JavaScript</template>
+<p>You need <strong>Node 20 or newer</strong> (Bun and Deno also work). To check:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">node --version</code></pre>
+</doc-codeblock></div>
+<p>If that prints <code translate="no" v-pre>v20.0.0</code> or higher, you are fine. Otherwise install Node from <a href="https://nodejs.org/"><em>nodejs.org</em></a>.</p>
+</doc-tab>
+<doc-tab v-cloak id="go">
+<template #title>Go</template>
+<p>You need <strong>Go 1.27 or newer</strong>. To check:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">go version</code></pre>
+</doc-codeblock></div>
+<p>If it prints <code translate="no" v-pre>go version go1.27.1</code> or higher, you are fine. Otherwise install Go from <a href="https://go.dev/dl/"><em>go.dev/dl</em></a>.</p>
+</doc-tab>
+</doc-tabs>
+<hr>
+<h2 id="step-2--install-jpcl">Step 2 — install JPCL</h2>
+<p>Make a folder for your project first, and open a terminal <em>inside it</em>. Then:</p>
+<doc-tabs>
+<doc-tab v-cloak id="python-1">
+<template #title>Python</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">pip install jpcl</code></pre>
+</doc-codeblock></div>
+<p>If <code translate="no" v-pre>pip</code> isn&#x27;t found, try <code translate="no" v-pre>python -m pip install jpcl</code> instead.</p>
+</doc-tab>
+<doc-tab v-cloak id="javascript-1">
+<template #title>JavaScript</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">npm install jpcl</code></pre>
+</doc-codeblock></div>
+<p>If your project has no <code translate="no" v-pre>package.json</code> yet, run <code translate="no" v-pre>npm init -y</code> first.</p>
+</doc-tab>
+<doc-tab v-cloak id="go-1">
+<template #title>Go</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">go get github.com/jpcl-lang/jpcl-go</code></pre>
+</doc-codeblock></div>
+<p>If your project has no <code translate="no" v-pre>go.mod</code> yet, run <code translate="no" v-pre>go mod init example.com/myproject</code> first.</p>
+</doc-tab>
+</doc-tabs>
+<p>To check it worked, run:</p>
+<div id="step-2--install-jpcl-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">jpcl --version</code></pre>
+</doc-codeblock></div>
+<p>It should print a version number. If the command isn&#x27;t found, that&#x27;s normal in some setups — use <code translate="no" v-pre>python -m jpcl</code> (Python) or <code translate="no" v-pre>npx jpcl</code> (JavaScript) everywhere this guide says <code translate="no" v-pre>jpcl</code>.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Go and the command line</h5>
+<p><code translate="no" v-pre>go get</code> installs the <em>library</em>, not the command. If you want the <code translate="no" v-pre>jpcl</code> command in Go, install it separately with <code translate="no" v-pre>go install github.com/jpcl-lang/jpcl-go/cmd/jpcl@latest</code>.</p>
+        </div>
+    </div>
+</div>
+<hr>
+<h2 id="step-3--write-your-first-file">Step 3 — write your first file</h2>
+<p>Make a folder called <code translate="no" v-pre>data</code>, and inside it a file called <code translate="no" v-pre>settings.jp</code>. Put this in it:</p>
+<div id="step-3--write-your-first-file-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># My first JPCL file.
+
+[bot]
+name: &quot;Clanker&quot;
+prefix: &quot;!&quot;
+enabled: true
+max_warnings: 3</code></pre>
+</doc-codeblock></div>
+<p>Save it.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Why a <code translate="no" v-pre>data</code> folder?</h5>
+<p>Nothing forces it. It is just a tidy habit — configs in one place, code in another. <a href="../recipes/"><em>Worked examples</em></a> has a layout that scales.</p>
+        </div>
+    </div>
+</div>
+<hr>
+<h2 id="step-4--check-it-before-you-trust-it">Step 4 — check it before you trust it</h2>
+<p>Before wiring it into any program, ask JPCL whether the file is actually valid:</p>
+<div id="step-4--check-it-before-you-trust-it-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">jpcl check data/settings.jp</code></pre>
+</doc-codeblock></div>
+<p>Success looks like this:</p>
+<div id="step-4--check-it-before-you-trust-it-code-2" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre translate="no" class="language-none"><code v-pre class="language-none">ok  data/settings.jp</code></pre>
+</doc-codeblock></div>
+<p>If instead you get something with a <code translate="no" v-pre>^</code> pointing at a character, the file has a typo. Don&#x27;t panic — that arrow is pointing straight at the problem. <a href="../errors/"><em>When it goes wrong</em></a> explains every message JPCL can produce.</p>
+<p>Get into the habit of running <code translate="no" v-pre>jpcl check</code> after every hand edit. It takes half a second, and it turns &quot;my program crashes on startup and I don&#x27;t know why&quot; into &quot;line 4 has a missing brace&quot;.</p>
+<hr>
+<h2 id="step-5--read-it-from-a-program">Step 5 — read it from a program</h2>
+<p>Now the part that matters. Make a file next to your <code translate="no" v-pre>data</code> folder and paste in the whole thing:</p>
+<doc-tabs>
+<doc-tab v-cloak id="python-2">
+<template #title>Python</template>
+<p>Save as <code translate="no" v-pre>main.py</code>:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">import jpcl
+
+data = jpcl.load(&quot;data/settings.jp&quot;)
+
+print(data)
+print(data[&quot;bot&quot;][&quot;name&quot;])
+print(data[&quot;bot&quot;][&quot;max_warnings&quot;] + 1)</code></pre>
+</doc-codeblock></div>
+<p>Run it:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">python main.py</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="javascript-2">
+<template #title>JavaScript</template>
+<p>Save as <code translate="no" v-pre>main.js</code>:</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">import { load } from &quot;jpcl&quot;;
+
+const data = await load(&quot;data/settings.jp&quot;);
+
+console.log(data);
+console.log(data.bot.name);
+console.log(data.bot.max_warnings + 1);</code></pre>
+</doc-codeblock></div>
+<p>Add <code translate="no" v-pre>&quot;type&quot;: &quot;module&quot;</code> to your <code translate="no" v-pre>package.json</code>, then run:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">node main.js</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="go-2">
+<template #title>Go</template>
+<p>Save as <code translate="no" v-pre>main.go</code>:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-go"><code v-pre class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+
+	&quot;github.com/jpcl-lang/jpcl-go&quot;
+)
+
+func main() {
+	data, err := jpcl.Load(&quot;data/settings.jp&quot;, jpcl.ParseOptions{})
+	if err != nil {
+		panic(err)
+	}
+
+	bot, _ := data.Get(&quot;bot&quot;)
+	name, _ := bot.(*jpcl.Object).Get(&quot;name&quot;)
+	fmt.Println(name)
+}</code></pre>
+</doc-codeblock></div>
+<p>Run it:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-bash"><code v-pre class="language-bash">go run main.go</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<p>You should see <code translate="no" v-pre>Clanker</code> printed back at you. That is the whole loop: a file on disk becomes ordinary data in your program.</p>
+<p>Notice what happened without you asking. <code translate="no" v-pre>enabled: true</code> came through as a real boolean, not the text <code translate="no" v-pre>&quot;true&quot;</code>. <code translate="no" v-pre>max_warnings: 3</code> came through as a number you can do arithmetic on. JPCL works out the type from how the value is written — <a href="../syntax/#values"><em>Values</em></a> has the full list.</p>
+<hr>
+<h2 id="step-6--change-it-from-a-program">Step 6 — change it from a program</h2>
+<p>Reading is half of it. Programs often need to <em>write</em> settings back — remembering a choice, recording a first run.</p>
+<p>Use <code translate="no" v-pre>JPConfig</code>. It is a wrapper that remembers which file it came from, so you never have to repeat the path:</p>
+<doc-tabs>
+<doc-tab v-cloak id="python-3">
+<template #title>Python</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">from jpcl import JPConfig
+
+cfg = JPConfig.load(&quot;data/settings.jp&quot;)
+
+cfg.set_path(&quot;bot.prefix&quot;, &quot;?&quot;)
+cfg.save()</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="javascript-3">
+<template #title>JavaScript</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">import { JPConfig } from &quot;jpcl&quot;;
+
+const cfg = await JPConfig.load(&quot;data/settings.jp&quot;);
+
+cfg.setPath(&quot;bot.prefix&quot;, &quot;?&quot;);
+await cfg.save();</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="go-3">
+<template #title>Go</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-go"><code v-pre class="language-go">cfg, err := jpcl.LoadJPConfig(&quot;data/settings.jp&quot;, false, jpcl.ConfigOptions{
+	Write: jpcl.DefaultStringifyOptions(),
+})
+if err != nil {
+	panic(err)
+}
+
+cfg.SetPath(&quot;bot.prefix&quot;, &quot;?&quot;)
+cfg.Save(&quot;&quot;)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<p>Open <code translate="no" v-pre>data/settings.jp</code> again and <code translate="no" v-pre>prefix</code> will now be <code translate="no" v-pre>&quot;?&quot;</code>.</p>
+<p><code translate="no" v-pre>bot.prefix</code> is a <strong>dotted path</strong> — &quot;inside <code translate="no" v-pre>bot</code>, the key <code translate="no" v-pre>prefix</code>&quot;. It saves you reaching through each level by hand, and on the way <em>in</em> it creates any missing levels for you.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Comments are lost on save</h5>
+<p>Look closely at the file you just saved: the <code translate="no" v-pre># My first JPCL file.</code> comment is gone. A program rewriting a file reproduces the <em>data</em>, and JPCL does not keep comments through that round trip. Keep hand-annotated files separate from the ones your program writes to. <a href="../spec/#round-trips"><em>Round trips</em></a> covers this, and the one other thing that shifts.</p>
+        </div>
+    </div>
+</div>
+<hr>
+<h2 id="the-five-mistakes-everyone-makes">The five mistakes everyone makes</h2>
+<p>These account for almost every error you will hit.</p>
+<h3 id="1-starting-a-value-on-the-next-line">1. Starting a value on the next line</h3>
+<div id="1-starting-a-value-on-the-next-line-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG
+config:
+  { retries: 3 }</code></pre>
+</doc-codeblock></div>
+<div id="1-starting-a-value-on-the-next-line-code-2" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># RIGHT
+config: {
+  retries: 3
+}</code></pre>
+</doc-codeblock></div>
+<p>A value must <strong>begin on the same line as its colon</strong>. It can then wrap onto as many following lines as it likes, but the opening <code translate="no" v-pre>{</code> or <code translate="no" v-pre>[</code> has to be up there with the <code translate="no" v-pre>:</code>. This is the price of <code translate="no" v-pre>timeout:</code> meaning &quot;empty&quot; — otherwise JPCL could not tell the two apart.</p>
+<h3 id="2-forgetting-a-closing-bracket">2. Forgetting a closing bracket</h3>
+<div id="2-forgetting-a-closing-bracket-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG
+users: [1, 2, 3</code></pre>
+</doc-codeblock></div>
+<p>Every <code translate="no" v-pre>[</code> needs a <code translate="no" v-pre>]</code> and every <code translate="no" v-pre>{</code> needs a <code translate="no" v-pre>}</code>. The error message says <code translate="no" v-pre>unterminated array: missing ']'</code> and points at where the array started.</p>
+<h3 id="3-using--instead-of-">3. Using <code translate="no" v-pre>=</code> instead of <code translate="no" v-pre>:</code></h3>
+<div id="3-using--instead-of--code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG
+prefix = &quot;!&quot;</code></pre>
+</doc-codeblock></div>
+<div id="3-using--instead-of--code-2" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># RIGHT
+prefix: &quot;!&quot;</code></pre>
+</doc-codeblock></div>
+<p>JPCL uses colons, like JSON. TOML and <code translate="no" v-pre>.env</code> files use <code translate="no" v-pre>=</code>; JPCL does not.</p>
+<h3 id="4-not-quoting-a-value-that-needs-it">4. Not quoting a value that needs it</h3>
+<div id="4-not-quoting-a-value-that-needs-it-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG -- this parses fine, but the value is just &quot;issue&quot;.
+# The # started a comment and ate the rest of the line.
+label: issue #1 reported</code></pre>
+</doc-codeblock></div>
+<div id="4-not-quoting-a-value-that-needs-it-code-2" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># RIGHT
+label: &quot;issue #1 reported&quot;</code></pre>
+</doc-codeblock></div>
+<p>Unquoted values are fine for ordinary text, but quote anything containing a <code translate="no" v-pre>#</code>, a comma, a bracket, or spaces at either end that you want to keep.</p>
+<h3 id="5-editing-the-file-while-the-program-is-running">5. Editing the file while the program is running</h3>
+<p>Most programs read their config once, at startup. Changing the file afterwards does nothing until you restart. If your edit seems to have been ignored, restart before you go looking for a bug.</p>
+<hr>
+<h2 id="where-to-go-next">Where to go next</h2>
+<doc-steps>
+   <doc-step id="writing-jp-filesjpclsyntax" step-number="1">
+      <template #title><em><a href="../syntax/">Writing .jp files</a></em></template>
+<p>Every rule of the format, in plain English, with an example for each.</p>
+   </doc-step>
+   <doc-step id="worked-examplesjpclrecipes" step-number="2">
+      <template #title><em><a href="../recipes/">Worked examples</a></em></template>
+<p>Complete projects you can copy — a bot config, a settings file that writes itself, a folder of per-server files.</p>
+   </doc-step>
+   <doc-step id="your-languages-page" step-number="3">
+      <template #title><em>Your language&#x27;s page</em></template>
+<p><a href="../py/">Python</a>, <a href="../npm/">JavaScript</a> or <a href="../go/">Go</a> — the full API for each.</p>
+   </doc-step>
+</doc-steps>
+
+                
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+            </div>
+            <footer id="retype-content-footer" class="clear-both">
+            
+                <nav id="retype-nextprev" class="print:hidden flex mt-14">
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../jpcl/">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                            <span>
+                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
+                                <span class="block mt-1">JPCL</span>
+                            </span>
+                        </a>
+                    </div>
+            
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../jpcl/syntax/">
+                            <span>
+                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
+                                <span class="block mt-1">Writing .​jp files</span>
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                        </a>
+                    </div>
+                </nav>
+            </footer>
+        </main>
+
+        <div id="retype-page-footer" class="print:border-none border-t border-base-border pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                <div id="retype-footer-links" class="print:hidden">
+                    <ul class="flex flex-wrap items-center text-sm">
+                        <li>
+                            <a class="block mr-4 py-2 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-footer-link hover:text-footer-link-hover md:mb-0" href="https://github.com/doughmination">GitHub</a>
+                        </li>
+                        <li>
+                            <a class="block mr-4 py-2 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-footer-link hover:text-footer-link-hover md:mb-0" href="https://discord.gg/N8gCjS294R">Discord</a>
+                        </li>
+                        <li>
+                            <a class="block mr-4 py-2 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-footer-link hover:text-footer-link-hover md:mb-0" href="https://matrix.to/#/#doughmination:matrix.org">Matrix</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="retype-copyright" class="print:justify-center py-2 text-footer-text font-footer-link text-sm leading-relaxed"><p>© 2026 Clove Twilight - All Rights Reserved.</p></div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-sidebar-right-bg border-sidebar-right-border lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:translate-x-0 sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+        </div>
+    </div>
+
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+    <div id="retype-overlay-target"></div>
+
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Start here", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/jpcl/start.md" }</script>
+</body>
+</html>

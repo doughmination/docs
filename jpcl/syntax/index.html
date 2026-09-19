@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843159771101">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 4.6.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Writing .jp files | Doughmination Docs</title>
+    <meta name="title" content="Writing .jp files | Doughmination Docs">
+    <meta name="description" content="Every rule of the format, one at a time, with an example each. This is the page to keep open while you write a config.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://docs.doughmination.gay/jpcl/syntax/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.doughmination.gay/sitemap.xml">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://docs.doughmination.gay/jpcl/syntax/">
+    <meta property="og:title" content="Writing .jp files | Doughmination Docs">
+    <meta property="og:description" content="Every rule of the format, one at a time, with an example each. This is the page to keep open while you write a config.">
+    <meta property="og:site_name" content="Doughmination Docs">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://docs.doughmination.gay/jpcl/syntax/">
+    <meta name="twitter:title" content="Writing .jp files | Doughmination Docs">
+    <meta name="twitter:description" content="Every rule of the format, one at a time, with an example each. This is the page to keep open while you write a config.">
+
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://docs.doughmination.gay/jpcl/syntax.md">
+
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
+
+    <link id="retype-favicon" rel="icon" href="../../media/favicon.png" />
+    <link href="../../resources/css/retype.css?v=4.6.0.843159771101" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.843159771101" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.843159771101" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.843159771101" defer></script>
+
+    <!--
+      Force dark mode site-wide.
+
+      Retype's own bootstrap decides the colour scheme from, in order:
+        1. localStorage["retype_scheme"]  ("dark" | "light"; absent means "system")
+        2. the `dark` / `light` class already on <html>
+        3. the visitor's prefers-color-scheme
+
+      Pinning (1) and (2) to dark makes every later check agree, so the page
+      never renders light even for a moment. The `scheme.mode` project setting
+      does the same thing natively, but it is Retype Pro only.
+    -->
+    <script data-cfasync="false">
+      (function () {
+        try { localStorage.setItem("retype_scheme", "dark"); } catch (e) {}
+        var cl = document.documentElement.classList;
+        cl.remove("light");
+        cl.add("dark");
+      })();
+    </script>
+
+    <style>
+      /* Hide the light/dark switch: there is nothing left for it to switch to. */
+      [aria-label="Change theme"],
+      [title="Change theme"],
+      .scheme-menu-item,
+      .scheme-menu-item-text {
+        display: none !important;
+      }
+    </style>
+
+    <!-- JPCL palette, matching jpcl-lang/web. Retype's own `theme:` setting is Pro only. -->
+    <link rel="stylesheet" href="/assets/css/jpcl-theme.css">
+
+</head>
+<body>
+    <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
+    <div class="absolute bottom-0 left-0" style="top: 5rem; right: 50%"></div>
+
+    <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-header-bg border-b border-header-border md:h-20">
+        <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+            <!-- Mobile menu button skeleton -->
+            <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-hidden rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+            <div v-cloak id="retype-sidebar-left-toggle-button"></div>
+    
+            <!-- Logo -->
+            <div class="flex items-center justify-between h-full py-2 md:w-75">
+                <div class="flex items-center px-2 md:px-6">
+                    <a id="retype-branding-logo" href="https://docs.doughmination.gay/" class="flex items-center leading-snug text-xl">
+                        <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
+                            <img class="max-h-10 md:inline-block" src="../../media/favicon.png" alt="" width="40" height="40">
+                        </span>
+                        <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Doughmination Docs</span>
+                    </a>
+                </div>
+    
+                <span class="hidden h-8 border-r md:inline-block border-base-border"></span>
+            </div>
+    
+            <div class="flex justify-between md:grow">
+                <!-- Top Nav -->
+                <nav id="retype-header-nav" class="hidden md:flex">
+                    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                        <li class="mr-6">
+                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                </svg>
+                                <span>Home</span>
+                            </a>
+                        </li>
+    
+                    </ul>
+                </nav>
+    
+                <div v-cloak class="flex justify-end grow">
+                    <div id="retype-mobile-search-button"></div>
+                    <doc-search-desktop></doc-search-desktop>
+    
+                    <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                    <doc-history></doc-history>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="retype-container" class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+        <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-sidebar-left-bg border-sidebar-left-border sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton">
+        
+            <div class="flex items-center h-16 px-6">
+                <input id="retype-filter-input-mock" class="w-full h-10 pl-8 px-3 py-2 transition-colors duration-200 ease-linear bg-filter-bg border border-filter-border rounded-lg shadow-none md:text-sm hover:border-filter-border-hover focus:outline-hidden focus:border-filter-border-focus placeholder-filter-placeholder" type="text">
+            </div>
+        
+            <div class="pl-6 mt-1 mb-4">
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            </div>
+        
+            <div class="shrink-0 mt-auto bg-transparent dark:border-base-border">
+                <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                    <span class="text-xs whitespace-nowrap">Powered by</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Sidebar component -->
+        <doc-sidebar v-cloak>
+            <template #sidebar-footer>
+                <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-base-border">
+        
+                    <div class="py-3 px-6 md:hidden border-b dark:border-base-border">
+                        <nav>
+                            <ul class="flex flex-wrap justify-center items-center">
+                                <li class="mr-6">
+                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                        </svg>
+                                        <span>Home</span>
+                                    </a>
+                                </li>
+        
+                            </ul>
+                        </nav>
+                    </div>
+        
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </template>
+        </doc-sidebar>
+
+        <div class="grow min-w-0 bg-body-bg">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+<div class="flex">
+    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
+        <main class="relative pb-12 lg:pt-2">
+            <div class="relative retype-markdown" id="retype-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="retype-sidebar-right-toggle"></div>
+                <doc-page-actions></doc-page-actions>
+
+                <!-- Page content  -->
+<h1 id="writing-jp-files">Writing <code translate="no" v-pre>.jp</code> files</h1>
+<p>Every rule of the format, one at a time, with an example each. This is the page to keep open while you write a config.</p>
+<p>If you want the same information stated precisely — grammar, limits, exact resolution order — read <a href="../spec/"><em>Language reference</em></a> instead. If you have never done this before, <a href="../start/"><em>Start here</em></a> comes first.</p>
+<hr>
+<h2 id="the-shape-of-a-file">The shape of a file</h2>
+<p>A <code translate="no" v-pre>.jp</code> file is a list of <strong>entries</strong>, optionally grouped under <strong>section headers</strong>, with <strong>comments</strong> anywhere you like.</p>
+<div id="the-shape-of-a-file-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># a comment
+
+version: 2                 # a root-level entry
+
+[SERVER_ID]                # a section header
+prefix: &quot;!&quot;                # an entry inside that section
+modules: {                 # an entry whose value is an object
+  moderation: true,
+  fun: false
+}</code></pre>
+</doc-codeblock></div>
+<p>That parses to:</p>
+<div id="the-shape-of-a-file-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-json"><code v-pre class="language-json">{
+  &quot;version&quot;: 2,
+  &quot;SERVER_ID&quot;: {
+    &quot;prefix&quot;: &quot;!&quot;,
+    &quot;modules&quot;: { &quot;moderation&quot;: true, &quot;fun&quot;: false }
+  }
+}</code></pre>
+</doc-codeblock></div>
+<hr>
+<h2 id="sections">Sections</h2>
+<p>A <code translate="no" v-pre>[NAME]</code> header opens a root key. Everything below it, until the next header, belongs to that section.</p>
+<div id="sections-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">[SERVER_ID]
+prefix: &quot;!&quot;</code></pre>
+</doc-codeblock></div>
+<div id="sections-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-json"><code v-pre class="language-json">{ &quot;SERVER_ID&quot;: { &quot;prefix&quot;: &quot;!&quot; } }</code></pre>
+</doc-codeblock></div>
+<h3 id="dotted-headers-nest">Dotted headers nest</h3>
+<p>A dot inside a header creates a level of nesting, which saves you a pile of braces:</p>
+<div id="dotted-headers-nest-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">[guild.limits]
+per_minute: 30</code></pre>
+</doc-codeblock></div>
+<div id="dotted-headers-nest-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-json"><code v-pre class="language-json">{ &quot;guild&quot;: { &quot;limits&quot;: { &quot;per_minute&quot;: 30 } } }</code></pre>
+</doc-codeblock></div>
+<h3 id="quote-a-header-whose-name-contains-a-dot">Quote a header whose name contains a dot</h3>
+<p>If the name itself has a dot in it, quote it so JPCL doesn&#x27;t split on it:</p>
+<div id="quote-a-header-whose-name-contains-a-dot-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">[&quot;weird.name&quot;]
+a: 1</code></pre>
+</doc-codeblock></div>
+<div id="quote-a-header-whose-name-contains-a-dot-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-json"><code v-pre class="language-json">{ &quot;weird.name&quot;: { &quot;a&quot;: 1 } }</code></pre>
+</doc-codeblock></div>
+<p>You can quote one segment of a dotted header and leave the rest bare — <code translate="no" v-pre>[guild.&quot;my.limits&quot;]</code> nests under <code translate="no" v-pre>guild</code> with a single child called <code translate="no" v-pre>my.limits</code>.</p>
+<h3 id="entries-before-the-first-header-live-at-the-root">Entries before the first header live at the root</h3>
+<p>Anything written above the first <code translate="no" v-pre>[HEADER]</code> belongs to the document itself, not to a section:</p>
+<div id="entries-before-the-first-header-live-at-the-root-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">version: 2
+
+[SERVER_ID]
+prefix: &quot;!&quot;</code></pre>
+</doc-codeblock></div>
+<div id="entries-before-the-first-header-live-at-the-root-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-json"><code v-pre class="language-json">{ &quot;version&quot;: 2, &quot;SERVER_ID&quot;: { &quot;prefix&quot;: &quot;!&quot; } }</code></pre>
+</doc-codeblock></div>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Root entries have to go at the top</h5>
+<p>This only works <em>above</em> the first header. There is no way to return to the root once a section has opened — anything after a header is read as part of that section. This is also why a rewritten file moves root scalars to the top; see <a href="../spec/#round-trips"><em>Round trips</em></a>.</p>
+        </div>
+    </div>
+</div>
+<h3 id="a-section-name-cant-be-used-twice">A section name can&#x27;t be used twice</h3>
+<div id="a-section-name-cant-be-used-twice-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG
+[SERVER_ID]
+a: 1
+
+[SERVER_ID]
+b: 2</code></pre>
+</doc-codeblock></div>
+<p>That is an error by default, on the grounds that you almost certainly meant two different sections. If you genuinely want the two merged, load the file with the duplicate-key policy set to <code translate="no" v-pre>last</code> — see <doc-anchor-trigger to="#duplicate-keys"><em>Duplicate keys</em></doc-anchor-trigger> below.</p>
+<h3 id="sections-dont-have-to-hold-anything">Sections don&#x27;t have to hold anything</h3>
+<p>An empty section is fine, and gives you an empty object:</p>
+<div id="sections-dont-have-to-hold-anything-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">[placeholder]</code></pre>
+</doc-codeblock></div>
+<hr>
+<h2 id="entries">Entries</h2>
+<p>An entry is <code translate="no" v-pre>key: value</code>.</p>
+<div id="entries-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">prefix: &quot;!&quot;</code></pre>
+</doc-codeblock></div>
+<h3 id="keys-usually-need-no-quotes">Keys usually need no quotes</h3>
+<p>A bare key may contain spaces, but not brackets, commas or quotes. Quote it if it needs any of those:</p>
+<div id="keys-usually-need-no-quotes-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">prefix: &quot;!&quot;
+display name: &quot;Clanker&quot;        # spaces are fine unquoted
+&quot;weird, key&quot;: 1                # a comma means you must quote
+&quot;[bracketed]&quot;: 2</code></pre>
+</doc-codeblock></div>
+<h3 id="separators-are-flexible">Separators are flexible</h3>
+<p>Entries are separated by a line break, a comma, or both. Trailing and repeated commas are accepted and ignored:</p>
+<div id="separators-are-flexible-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">[SERVER_ID]
+a: 1
+b: {x: 1, y: 2,}
+c: [1, 2, 3,]
+d: 4, e: 5</code></pre>
+</doc-codeblock></div>
+<p>All five keys parse, and the stray comma after <code translate="no" v-pre>2</code> and <code translate="no" v-pre>3</code> is harmless. This means you can paste JSON-ish fragments in without tidying the commas first.</p>
+<h3 id="a-key-cant-be-used-twice-in-one-place">A key can&#x27;t be used twice in one place</h3>
+<div id="a-key-cant-be-used-twice-in-one-place-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG
+[SERVER_ID]
+prefix: &quot;!&quot;
+prefix: &quot;?&quot;</code></pre>
+</doc-codeblock></div>
+<p>By default that is an error rather than a silent overwrite, because a duplicated key is nearly always a mistake — usually a half-finished edit. See <doc-anchor-trigger to="#duplicate-keys"><em>Duplicate keys</em></doc-anchor-trigger>.</p>
+<hr>
+<h2 id="empty-values">Empty values</h2>
+<p>A key with nothing after the colon is legal, and means &quot;this exists and has no value&quot;:</p>
+<div id="empty-values-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">config: {
+  disabled_channels:,      # empty
+  timeout:                 # also empty
+}</code></pre>
+</doc-codeblock></div>
+<p>It parses to <code translate="no" v-pre>None</code> in Python, <code translate="no" v-pre>null</code> in JavaScript, and <code translate="no" v-pre>nil</code> in Go — the same as writing <code translate="no" v-pre>null</code> explicitly.</p>
+<p>This is the one feature JPCL has that JSON doesn&#x27;t, and it is there because half-configured settings are a real state in a real config file. <code translate="no" v-pre>log_channel:</code> says <em>&quot;I know about this setting, I haven&#x27;t picked a channel yet&quot;</em> in a way that a missing key can&#x27;t.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-danger"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-danger" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M21.71 6.15L15.85.29c-.19-.18-.44-.29-.71-.29H6.86c-.27 0-.52.11-.71.29L.29 6.15c-.18.19-.29.44-.29.71v8.28c0 .27.11.52.29.71l5.86 5.86c.19.18.44.29.71.29h8.28c.27 0 .52-.11.71-.29l5.86-5.86a.99.99 0 00.29-.71V6.86c0-.27-.11-.52-.29-.71zM20 14.73L14.73 20H7.27L2 14.73V7.27L7.27 2h7.45L20 7.27v7.46z"></path>
+                    <path d="M11 12c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .55.45 1 1 1zM11.01 14c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>The rule this costs you</h5>
+<p>Because an empty value is legal, <strong>a value must start on the same line as its <code translate="no" v-pre>:</code></strong>. JPCL cannot look at the next line to decide — by the time it gets there, the entry is already over.</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG -- this is an empty value, then a stray object
+config:
+  { retries: 3 }</code></pre>
+</doc-codeblock></div>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># RIGHT -- the { is on the colon's line; the contents wrap freely
+config: {
+  retries: 3
+}</code></pre>
+</doc-codeblock></div>
+        </div>
+    </div>
+</div>
+<hr>
+<h2 id="values">Values</h2>
+<retype-table copy-text="| Type | Examples |
+| --- | --- |
+| String | `&quot;hello&quot;`, `'hello'`, `hello world` (unquoted) |
+| Integer | `42`, `-7`, `1_000`, `0xff`, `0o755`, `0b1010` |
+| Float | `3.5`, `1e3`, `inf`, `-inf`, `nan` |
+| Boolean | `true`, `false` (case-insensitive, so `True` works too) |
+| Null | `null`, `none`, `nil`, or nothing at all |
+| Object | `{a: 1, b: 2}` |
+| Array | `[1, 2, 3]` |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Type</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String</td>
+<td><code translate="no" v-pre>&quot;hello&quot;</code>, <code translate="no" v-pre>'hello'</code>, <code translate="no" v-pre>hello world</code> (unquoted)</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td><code translate="no" v-pre>42</code>, <code translate="no" v-pre>-7</code>, <code translate="no" v-pre>1_000</code>, <code translate="no" v-pre>0xff</code>, <code translate="no" v-pre>0o755</code>, <code translate="no" v-pre>0b1010</code></td>
+</tr>
+<tr>
+<td>Float</td>
+<td><code translate="no" v-pre>3.5</code>, <code translate="no" v-pre>1e3</code>, <code translate="no" v-pre>inf</code>, <code translate="no" v-pre>-inf</code>, <code translate="no" v-pre>nan</code></td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td><code translate="no" v-pre>true</code>, <code translate="no" v-pre>false</code> (case-insensitive, so <code translate="no" v-pre>True</code> works too)</td>
+</tr>
+<tr>
+<td>Null</td>
+<td><code translate="no" v-pre>null</code>, <code translate="no" v-pre>none</code>, <code translate="no" v-pre>nil</code>, or nothing at all</td>
+</tr>
+<tr>
+<td>Object</td>
+<td><code translate="no" v-pre>{a: 1, b: 2}</code></td>
+</tr>
+<tr>
+<td>Array</td>
+<td><code translate="no" v-pre>[1, 2, 3]</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="how-an-unquoted-value-is-read">How an unquoted value is read</h3>
+<p>An unquoted value is tried as a <strong>keyword</strong> first (<code translate="no" v-pre>true</code>, <code translate="no" v-pre>false</code>, <code translate="no" v-pre>null</code>, <code translate="no" v-pre>none</code>, <code translate="no" v-pre>nil</code>, <code translate="no" v-pre>inf</code>, <code translate="no" v-pre>nan</code>), then as a <strong>number</strong>, and if it is neither, it is kept as a <strong>plain string</strong>.</p>
+<div id="how-an-unquoted-value-is-read-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">a: true          # boolean
+b: 42            # integer
+c: 3.5           # float
+d: hello world   # string
+e: &quot;true&quot;        # string -- the quotes win
+f: &quot;42&quot;          # string</code></pre>
+</doc-codeblock></div>
+<p>So <code translate="no" v-pre>enabled: true</code> gives you a boolean you can test directly, and <code translate="no" v-pre>name: Clanker</code> gives you the text <code translate="no" v-pre>Clanker</code> with no fuss. If you need the literal text <code translate="no" v-pre>&quot;true&quot;</code>, quote it.</p>
+<h3 id="when-to-quote">When to quote</h3>
+<p>Quote a value when it contains a <code translate="no" v-pre>#</code>, a comma, a bracket, or leading/trailing whitespace you want to keep. Single and double quotes both work and mean the same thing.</p>
+<div id="when-to-quote-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">label: &quot;issue #1&quot;            # unquoted, the # would start a comment
+csv: &quot;a, b, c&quot;               # unquoted, 'b' would be read as the next key
+padded: &quot;  keep my spaces  &quot;
+apostrophe: &quot;it's fine&quot;      # double quotes, so the ' is ordinary
+quote_mark: 'say &quot;hi&quot;'       # single quotes, so the &quot; is ordinary</code></pre>
+</doc-codeblock></div>
+<h3 id="numbers">Numbers</h3>
+<p>Underscores are allowed as digit separators, and the usual bases are understood:</p>
+<div id="numbers-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">population: 1_000_000
+colour: 0xff8800
+permissions: 0o755
+flags: 0b1010
+ratio: 3.5
+big: 1e9</code></pre>
+</doc-codeblock></div>
+<p>Non-finite floats are spelled <code translate="no" v-pre>inf</code>, <code translate="no" v-pre>-inf</code> and <code translate="no" v-pre>nan</code>.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Very large integers</h5>
+<p>Discord snowflakes and other 64-bit IDs sit right at the edge of what some languages can hold exactly. Each implementation handles that differently — Python has unlimited integers, JavaScript switches to <code translate="no" v-pre>bigint</code> past 2^53, Go uses <code translate="no" v-pre>int64</code>. If you work with IDs, read the note on your language&#x27;s page: <a href="../py/">Python</a>, <a href="../npm/#big-numbers-stay-exact">JavaScript</a>, <a href="../go/#a-note-on-integer-size">Go</a>.</p>
+        </div>
+    </div>
+</div>
+<h3 id="strings-and-escapes">Strings and escapes</h3>
+<p>Strings honour the usual escapes:</p>
+<retype-table copy-text="| Escape | Means |
+|---|---|
+| `\n` | line break |
+| `\t` | tab |
+| `\\` | a literal backslash |
+| `\&quot;` `\'` | a quote mark |
+| `\uXXXX` | a character by 4-digit hex code |
+| `\U0001F600` | a character by 8-digit hex code |
+| `\` at end of line | continue this string onto the next line, ignoring that line's indentation |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Escape</th>
+<th>Means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>\n</code></td>
+<td>line break</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>\t</code></td>
+<td>tab</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>\\</code></td>
+<td>a literal backslash</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>\&quot;</code> <code translate="no" v-pre>\'</code></td>
+<td>a quote mark</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>\uXXXX</code></td>
+<td>a character by 4-digit hex code</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>\U0001F600</code></td>
+<td>a character by 8-digit hex code</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>\</code> at end of line</td>
+<td>continue this string onto the next line, ignoring that line&#x27;s indentation</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<div id="strings-and-escapes-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">message: &quot;first line\nsecond line&quot;
+emoji: &quot;\U0001F600&quot;
+long: &quot;this string carries on \
+onto the next line&quot;</code></pre>
+</doc-codeblock></div>
+<p>A plain line break inside a quoted string is an error — the message even tells you to use <code translate="no" v-pre>\n</code> instead. Use the trailing backslash if you want to wrap a long string in the source without putting a break in the value.</p>
+<h3 id="objects-and-arrays">Objects and arrays</h3>
+<p>Objects use <code translate="no" v-pre>{}</code>, arrays use <code translate="no" v-pre>[]</code>, and they nest as deep as you like:</p>
+<div id="objects-and-arrays-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">[1234567890]
+limits: {
+  rate: {per_minute: 30, burst: 5},
+  warn_threshold: 3
+}
+staff_roles: [111111111111111111, 222222222222222222]
+mixed: [1, &quot;two&quot;, true, null, {a: 1}, [2, 3]]</code></pre>
+</doc-codeblock></div>
+<p>Both may be empty: <code translate="no" v-pre>{}</code> and <code translate="no" v-pre>[]</code>.</p>
+<p>An array element cannot be <em>empty</em> the way an object value can — <code translate="no" v-pre>[1, , 2]</code> is not two elements and a gap. Write <code translate="no" v-pre>null</code> if you want a hole:</p>
+<div id="objects-and-arrays-code-2" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">slots: [1, null, 3]</code></pre>
+</doc-codeblock></div>
+<hr>
+<h2 id="comments">Comments</h2>
+<p><code translate="no" v-pre>#</code> runs to the end of the line, and is allowed anywhere — including inside objects and arrays:</p>
+<div id="comments-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># a whole-line comment
+
+[SERVER_ID]
+prefix: &quot;!&quot;        # a trailing comment
+limits: {
+  # a comment inside an object
+  rate: 30,        # and another
+}
+roles: [
+  111,             # inside an array, too
+  222
+]</code></pre>
+</doc-codeblock></div>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Comments do not survive a rewrite</h5>
+<p>If a program loads the file and saves it again, the comments are gone. The data is reproduced exactly; the notes are not. Keep files you annotate by hand separate from files your program writes to.</p>
+        </div>
+    </div>
+</div>
+<hr>
+<h2 id="duplicate-keys">Duplicate keys</h2>
+<p>By default, a repeated key or a repeated section header is an <strong>error</strong>. That is deliberate: silently keeping one of the two is how a config ends up quietly not doing what the file says.</p>
+<p>You can change that when loading, if you would rather it didn&#x27;t stop you:</p>
+<retype-table copy-text="| Policy | Behaviour |
+|---|---|
+| `error` | **Default.** Refuse the file and point at the second occurrence. |
+| `first` | Keep the first value, ignore later ones. |
+| `last` | Keep the last value. Repeated *sections* are merged into one. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Policy</th>
+<th>Behaviour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>error</code></td>
+<td><strong>Default.</strong> Refuse the file and point at the second occurrence.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>first</code></td>
+<td>Keep the first value, ignore later ones.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>last</code></td>
+<td>Keep the last value. Repeated <em>sections</em> are merged into one.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<doc-tabs>
+<doc-tab v-cloak id="python">
+<template #title>Python</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">jpcl.load(&quot;data/servers.jp&quot;, duplicate_keys=&quot;last&quot;)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="javascript">
+<template #title>JavaScript</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">await jpcl.load(&quot;data/servers.jp&quot;, { duplicateKeys: &quot;last&quot; });</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="go">
+<template #title>Go</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-go"><code v-pre class="language-go">jpcl.Load(&quot;data/servers.jp&quot;, jpcl.ParseOptions{DuplicateKeys: jpcl.DuplicateLast})</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<hr>
+<h2 id="things-that-are-not-allowed">Things that are <em>not</em> allowed</h2>
+<p>A short list of things people try, so you can rule them out quickly:</p>
+<retype-table copy-text="| Not allowed | Instead |
+|---|---|
+| `key = value` | `key: value` |
+| A value starting on the line after its `:` | Put the opening `{` or `[` on the colon's line |
+| A raw line break inside `&quot;...&quot;` | Use `\n`, or `\` at the end of the line |
+| `[1, , 2]` for a gap in an array | `[1, null, 2]` |
+| `//` or `/* */` comments | `#` |
+| A section header inside `{}` | Nest with `{}`, or use a dotted header |
+| Returning to the root after a header | Put root entries above the first header |
+| Nesting deeper than 200 levels | Restructure; this cap is a guard against hostile input |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Not allowed</th>
+<th>Instead</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>key = value</code></td>
+<td><code translate="no" v-pre>key: value</code></td>
+</tr>
+<tr>
+<td>A value starting on the line after its <code translate="no" v-pre>:</code></td>
+<td>Put the opening <code translate="no" v-pre>{</code> or <code translate="no" v-pre>[</code> on the colon&#x27;s line</td>
+</tr>
+<tr>
+<td>A raw line break inside <code translate="no" v-pre>&quot;...&quot;</code></td>
+<td>Use <code translate="no" v-pre>\n</code>, or <code translate="no" v-pre>\</code> at the end of the line</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>[1, , 2]</code> for a gap in an array</td>
+<td><code translate="no" v-pre>[1, null, 2]</code></td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>//</code> or <code translate="no" v-pre>/* */</code> comments</td>
+<td><code translate="no" v-pre>#</code></td>
+</tr>
+<tr>
+<td>A section header inside <code translate="no" v-pre>{}</code></td>
+<td>Nest with <code translate="no" v-pre>{}</code>, or use a dotted header</td>
+</tr>
+<tr>
+<td>Returning to the root after a header</td>
+<td>Put root entries above the first header</td>
+</tr>
+<tr>
+<td>Nesting deeper than 200 levels</td>
+<td>Restructure; this cap is a guard against hostile input</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<hr>
+<h2 id="a-complete-annotated-file">A complete annotated file</h2>
+<p>Everything above, in one file:</p>
+<div id="a-complete-annotated-file-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># Template config -- copy to servers.jp and fill in.
+# Section names are Discord guild IDs; they stay strings when parsed.
+
+# Keys before the first [header] belong to the document root.
+version: 2
+
+[SERVER_ID]
+config: {
+  disabled_channels:,
+  disabled_users: [9892, 82082, 8209]
+}
+
+[SERVER_ID_2]
+prefix: &quot;!&quot;
+modules: {
+  moderation: true,
+  fun: false
+}
+
+[1234567890]
+prefix: &quot;?&quot;
+# An empty value means &quot;set this later&quot;.
+log_channel:
+# Arrays wrap automatically once they outgrow the line.
+staff_roles: [111111111111111111, 222222222222222222, 333333333333333333]
+limits: {
+  # Nested objects may go as deep as you need.
+  rate: {per_minute: 30, burst: 5},
+  warn_threshold: 3
+}</code></pre>
+</doc-codeblock></div>
+<p>Run <code translate="no" v-pre>jpcl check</code> against it and it passes. Run <code translate="no" v-pre>jpcl to-json</code> and you can see exactly what it becomes.</p>
+<hr>
+<h2 id="next">Next</h2>
+<doc-steps>
+   <doc-step id="worked-examplesjpclrecipes" step-number="1">
+      <template #title><em><a href="../recipes/">Worked examples</a></em></template>
+<p>Complete projects using all of this.</p>
+   </doc-step>
+   <doc-step id="when-it-goes-wrongjpclerrors" step-number="2">
+      <template #title><em><a href="../errors/">When it goes wrong</a></em></template>
+<p>Every error message, and what to do about it.</p>
+   </doc-step>
+   <doc-step id="language-referencejpclspec" step-number="3">
+      <template #title><em><a href="../spec/">Language reference</a></em></template>
+<p>The same rules, stated precisely.</p>
+   </doc-step>
+</doc-steps>
+
+                
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+            </div>
+            <footer id="retype-content-footer" class="clear-both">
+            
+                <nav id="retype-nextprev" class="print:hidden flex mt-14">
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../jpcl/start/">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                            <span>
+                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
+                                <span class="block mt-1">Start here</span>
+                            </span>
+                        </a>
+                    </div>
+            
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../jpcl/recipes/">
+                            <span>
+                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
+                                <span class="block mt-1">Worked examples</span>
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                        </a>
+                    </div>
+                </nav>
+            </footer>
+        </main>
+
+        <div id="retype-page-footer" class="print:border-none border-t border-base-border pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                <div id="retype-footer-links" class="print:hidden">
+                    <ul class="flex flex-wrap items-center text-sm">
+                        <li>
+                            <a class="block mr-4 py-2 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-footer-link hover:text-footer-link-hover md:mb-0" href="https://github.com/doughmination">GitHub</a>
+                        </li>
+                        <li>
+                            <a class="block mr-4 py-2 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-footer-link hover:text-footer-link-hover md:mb-0" href="https://discord.gg/N8gCjS294R">Discord</a>
+                        </li>
+                        <li>
+                            <a class="block mr-4 py-2 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-footer-link hover:text-footer-link-hover md:mb-0" href="https://matrix.to/#/#doughmination:matrix.org">Matrix</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="retype-copyright" class="print:justify-center py-2 text-footer-text font-footer-link text-sm leading-relaxed"><p>© 2026 Clove Twilight - All Rights Reserved.</p></div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-sidebar-right-bg border-sidebar-right-border lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:translate-x-0 sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+        </div>
+    </div>
+
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+    <div id="retype-overlay-target"></div>
+
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Writing .jp files", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/jpcl/syntax.md" }</script>
+</body>
+</html>

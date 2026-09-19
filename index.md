@@ -1,6 +1,7 @@
-This is documentiation for my various projects and code.
+This is the official docs for my various projects and code.
 
 ## Projects
-- [Sandrone](/projects/sandrone)
-- [pkviewer](/projects/pkviewer)
-- [Doughmination Music](/projects/doughmination-music)
+- [Sandrone](/sandrone)
+- [pkviewer](/pkviewer)
+- [Doughmination Music](/doughmination-music)
+- [JPCL](/jpcl)

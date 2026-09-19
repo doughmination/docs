@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843159771101">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 4.6.0">
+
+    <!-- Primary Meta Tags -->
+    <title>When it goes wrong | Doughmination Docs</title>
+    <meta name="title" content="When it goes wrong | Doughmination Docs">
+    <meta name="description" content="Every message JPCL can produce, what it actually means, and how to fix it. The messages are the same in all three implementations, so this page applies whichever one you are using.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://docs.doughmination.gay/jpcl/errors/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.doughmination.gay/sitemap.xml">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://docs.doughmination.gay/jpcl/errors/">
+    <meta property="og:title" content="When it goes wrong | Doughmination Docs">
+    <meta property="og:description" content="Every message JPCL can produce, what it actually means, and how to fix it. The messages are the same in all three implementations, so this page applies whichever one you are using.">
+    <meta property="og:site_name" content="Doughmination Docs">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://docs.doughmination.gay/jpcl/errors/">
+    <meta name="twitter:title" content="When it goes wrong | Doughmination Docs">
+    <meta name="twitter:description" content="Every message JPCL can produce, what it actually means, and how to fix it. The messages are the same in all three implementations, so this page applies whichever one you are using.">
+
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://docs.doughmination.gay/jpcl/errors.md">
+
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
+
+    <link id="retype-favicon" rel="icon" href="../../media/favicon.png" />
+    <link href="../../resources/css/retype.css?v=4.6.0.843159771101" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.843159771101" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.843159771101" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.843159771101" defer></script>
+
+    <!--
+      Force dark mode site-wide.
+
+      Retype's own bootstrap decides the colour scheme from, in order:
+        1. localStorage["retype_scheme"]  ("dark" | "light"; absent means "system")
+        2. the `dark` / `light` class already on <html>
+        3. the visitor's prefers-color-scheme
+
+      Pinning (1) and (2) to dark makes every later check agree, so the page
+      never renders light even for a moment. The `scheme.mode` project setting
+      does the same thing natively, but it is Retype Pro only.
+    -->
+    <script data-cfasync="false">
+      (function () {
+        try { localStorage.setItem("retype_scheme", "dark"); } catch (e) {}
+        var cl = document.documentElement.classList;
+        cl.remove("light");
+        cl.add("dark");
+      })();
+    </script>
+
+    <style>
+      /* Hide the light/dark switch: there is nothing left for it to switch to. */
+      [aria-label="Change theme"],
+      [title="Change theme"],
+      .scheme-menu-item,
+      .scheme-menu-item-text {
+        display: none !important;
+      }
+    </style>
+
+    <!-- JPCL palette, matching jpcl-lang/web. Retype's own `theme:` setting is Pro only. -->
+    <link rel="stylesheet" href="/assets/css/jpcl-theme.css">
+
+</head>
+<body>
+    <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
+    <div class="absolute bottom-0 left-0" style="top: 5rem; right: 50%"></div>
+
+    <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-header-bg border-b border-header-border md:h-20">
+        <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+            <!-- Mobile menu button skeleton -->
+            <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-hidden rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+            <div v-cloak id="retype-sidebar-left-toggle-button"></div>
+    
+            <!-- Logo -->
+            <div class="flex items-center justify-between h-full py-2 md:w-75">
+                <div class="flex items-center px-2 md:px-6">
+                    <a id="retype-branding-logo" href="https://docs.doughmination.gay/" class="flex items-center leading-snug text-xl">
+                        <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
+                            <img class="max-h-10 md:inline-block" src="../../media/favicon.png" alt="" width="40" height="40">
+                        </span>
+                        <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Doughmination Docs</span>
+                    </a>
+                </div>
+    
+                <span class="hidden h-8 border-r md:inline-block border-base-border"></span>
+            </div>
+    
+            <div class="flex justify-between md:grow">
+                <!-- Top Nav -->
+                <nav id="retype-header-nav" class="hidden md:flex">
+                    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                        <li class="mr-6">
+                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                </svg>
+                                <span>Home</span>
+                            </a>
+                        </li>
+    
+                    </ul>
+                </nav>
+    
+                <div v-cloak class="flex justify-end grow">
+                    <div id="retype-mobile-search-button"></div>
+                    <doc-search-desktop></doc-search-desktop>
+    
+                    <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                    <doc-history></doc-history>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="retype-container" class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+        <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-sidebar-left-bg border-sidebar-left-border sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton">
+        
+            <div class="flex items-center h-16 px-6">
+                <input id="retype-filter-input-mock" class="w-full h-10 pl-8 px-3 py-2 transition-colors duration-200 ease-linear bg-filter-bg border border-filter-border rounded-lg shadow-none md:text-sm hover:border-filter-border-hover focus:outline-hidden focus:border-filter-border-focus placeholder-filter-placeholder" type="text">
+            </div>
+        
+            <div class="pl-6 mt-1 mb-4">
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            </div>
+        
+            <div class="shrink-0 mt-auto bg-transparent dark:border-base-border">
+                <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                    <span class="text-xs whitespace-nowrap">Powered by</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Sidebar component -->
+        <doc-sidebar v-cloak>
+            <template #sidebar-footer>
+                <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-base-border">
+        
+                    <div class="py-3 px-6 md:hidden border-b dark:border-base-border">
+                        <nav>
+                            <ul class="flex flex-wrap justify-center items-center">
+                                <li class="mr-6">
+                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                        </svg>
+                                        <span>Home</span>
+                                    </a>
+                                </li>
+        
+                            </ul>
+                        </nav>
+                    </div>
+        
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </template>
+        </doc-sidebar>
+
+        <div class="grow min-w-0 bg-body-bg">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+<div class="flex">
+    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
+        <main class="relative pb-12 lg:pt-2">
+            <div class="relative retype-markdown" id="retype-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="retype-sidebar-right-toggle"></div>
+                <doc-page-actions></doc-page-actions>
+
+                <!-- Page content  -->
+<h1 id="when-it-goes-wrong">When it goes wrong</h1>
+<p>Every message JPCL can produce, what it actually means, and how to fix it. The messages are the same in all three implementations, so this page applies whichever one you are using.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-secondary"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-secondary" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>One cosmetic difference: Go quotes names with double quotes (<code translate="no" v-pre>expected ':' after key &quot;prefix&quot;</code>) where Python and JavaScript use single quotes (<code translate="no" v-pre>'prefix'</code>). The messages are otherwise word-for-word identical, and this page uses the Python spelling.</p>
+        </div>
+    </div>
+</div>
+<hr>
+<h2 id="how-to-read-an-error">How to read an error</h2>
+<p>JPCL points at the exact character that upset it:</p>
+<div id="how-to-read-an-error-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre translate="no" class="language-none"><code v-pre class="language-none">data/servers.jp:2:8: expected ':' after key 'prefix', found '&quot;'
+    prefix &quot;!&quot;
+           ^</code></pre>
+</doc-codeblock></div>
+<retype-table copy-text="| Part | Meaning |
+|---|---|
+| `data/servers.jp` | The file. `&lt;stdin&gt;` if it came from a pipe. |
+| `2:8` | Line 2, column 8. |
+| `expected ':' after key 'prefix', found '&quot;'` | What went wrong. |
+| `prefix &quot;!&quot;` | The offending line, reproduced. |
+| `^` | The exact character. |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Part</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>data/servers.jp</code></td>
+<td>The file. <code translate="no" v-pre>&lt;stdin&gt;</code> if it came from a pipe.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>2:8</code></td>
+<td>Line 2, column 8.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>expected ':' after key 'prefix', found '&quot;'</code></td>
+<td>What went wrong.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>prefix &quot;!&quot;</code></td>
+<td>The offending line, reproduced.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>^</code></td>
+<td>The exact character.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<p><strong>The caret is the whole diagnosis.</strong> Look at the character it points at, then at the character before it, and the answer is almost always there. The line number is where JPCL <em>noticed</em>, which for an unclosed bracket is later than where you actually went wrong — but the message for those says where the bracket opened.</p>
+<p>If you want to render the failure yourself, the error object carries <code translate="no" v-pre>.line</code>, <code translate="no" v-pre>.col</code>, <code translate="no" v-pre>.pos</code>, <code translate="no" v-pre>.filename</code> and the raw message. See your language&#x27;s page for the field names.</p>
+<hr>
+<h2 id="parse-errors">Parse errors</h2>
+<p>Raised when a file cannot be read. <code translate="no" v-pre>JPDecodeError</code> in Python and JavaScript, <code translate="no" v-pre>*jpcl.DecodeError</code> in Go.</p>
+<h3 id="expected--after-key--found-"><code translate="no" v-pre>expected ':' after key '...', found ...</code></h3>
+<p>There is a key, but no colon after it.</p>
+<div id="expected--after-key--found--code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG
+prefix &quot;!&quot;
+
+# WRONG -- JPCL uses ':', not '='
+prefix = &quot;!&quot;</code></pre>
+</doc-codeblock></div>
+<div id="expected--after-key--found--code-2" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># RIGHT
+prefix: &quot;!&quot;</code></pre>
+</doc-codeblock></div>
+<h3 id="expected-a-key-found-"><code translate="no" v-pre>expected a key, found ...</code></h3>
+<p>Something appeared where a key was expected — usually a stray bracket or an opening brace with no key in front of it.</p>
+<div id="expected-a-key-found--code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG -- no key
+[SERVER_ID]
+{x: 1}</code></pre>
+</doc-codeblock></div>
+<p>If the message says <code translate="no" v-pre>found end of file</code>, the document ended mid-entry — usually an unclosed <code translate="no" v-pre>{</code> much further up that swallowed the rest of the file.</p>
+<h3 id="expected--a-line-break-or--after-value-found-"><code translate="no" v-pre>expected ',', a line break or ']' after value, found ...</code></h3>
+<p>A value was read, then something that can&#x27;t follow it. The <code translate="no" v-pre>'}'</code> and &quot;or a line break&quot; variants are the same problem inside an object, or at the top level of a section.</p>
+<div id="expected--a-line-break-or--after-value-found--code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG -- no comma between the two
+roles: [&quot;moderator&quot; &quot;admin&quot;]</code></pre>
+</doc-codeblock></div>
+<div id="expected--a-line-break-or--after-value-found--code-2" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># RIGHT
+roles: [&quot;moderator&quot;, &quot;admin&quot;]</code></pre>
+</doc-codeblock></div>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="block text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>A missing comma does not always error</h5>
+<p>Between two <em>unquoted</em> values, the missing comma is absorbed instead. <code translate="no" v-pre>{rate: 30 burst: 5}</code> is valid, and gives you one key whose value is the string <code translate="no" v-pre>&quot;30 burst: 5&quot;</code> — because an unquoted value runs until a comma, a bracket, a <code translate="no" v-pre>#</code> or a line break. If a value comes back as unexpected text, look for a missing comma before you look anywhere else.</p>
+        </div>
+    </div>
+</div>
+<h3 id="unterminated-object-missing-"><code translate="no" v-pre>unterminated object: missing '}'</code></h3>
+<p>A <code translate="no" v-pre>{</code> was opened and never closed. The position points at <strong>where the object started</strong>, not at the end of the file.</p>
+<div id="unterminated-object-missing--code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG
+limits: {
+  rate: 30</code></pre>
+</doc-codeblock></div>
+<h3 id="unterminated-array-missing-"><code translate="no" v-pre>unterminated array: missing ']'</code></h3>
+<p>Same, for <code translate="no" v-pre>[</code>.</p>
+<div id="unterminated-array-missing--code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG
+roles: [111, 222</code></pre>
+</doc-codeblock></div>
+<h3 id="unterminated-array-found--before-"><code translate="no" v-pre>unterminated array: found '}' before ']'</code></h3>
+<p>Your brackets are crossed — an array was closed with a brace. The position points at where the array <strong>opened</strong>.</p>
+<div id="unterminated-array-found--before--code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG
+roles: [111, 222,}</code></pre>
+</doc-codeblock></div>
+<p>It usually means a bracket further up is the wrong <em>kind</em>, not that this one is. Count your <code translate="no" v-pre>{</code> and <code translate="no" v-pre>[</code> from the top of the section.</p>
+<h3 id="unterminated-section-header"><code translate="no" v-pre>unterminated section header</code></h3>
+<p>A <code translate="no" v-pre>[</code> opened a header and no <code translate="no" v-pre>]</code> closed it before the line ended.</p>
+<div id="unterminated-section-header-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG
+[SERVER_ID</code></pre>
+</doc-codeblock></div>
+<h3 id="section-header-cannot-be-empty--section-header-segment-cannot-be-empty"><code translate="no" v-pre>section header cannot be empty</code> / <code translate="no" v-pre>section header segment cannot be empty</code></h3>
+<p><code translate="no" v-pre>[]</code>, or a dotted header with a gap in it.</p>
+<div id="section-header-cannot-be-empty--section-header-segment-cannot-be-empty-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG
+[]
+[guild.]
+[.limits]
+[guild..limits]</code></pre>
+</doc-codeblock></div>
+<div id="section-header-cannot-be-empty--section-header-segment-cannot-be-empty-code-2" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># RIGHT
+[guild.limits]</code></pre>
+</doc-codeblock></div>
+<h3 id="unexpected--after-section-header"><code translate="no" v-pre>unexpected ... after section header</code></h3>
+<p>Something other than a line break followed the <code translate="no" v-pre>]</code>.</p>
+<div id="unexpected--after-section-header-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG
+[SERVER_ID] prefix: &quot;!&quot;</code></pre>
+</doc-codeblock></div>
+<div id="unexpected--after-section-header-code-2" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># RIGHT
+[SERVER_ID]
+prefix: &quot;!&quot;</code></pre>
+</doc-codeblock></div>
+<h3 id="expected-a-line-break-before-a-section-header"><code translate="no" v-pre>expected a line break before a section header</code></h3>
+<p>A <code translate="no" v-pre>[HEADER]</code> appeared on the same line as the entry before it. A header always starts its own line.</p>
+<div id="expected-a-line-break-before-a-section-header-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG
+[SERVER_ID]
+prefix: &quot;!&quot; [SERVER_ID_2]</code></pre>
+</doc-codeblock></div>
+<h3 id="duplicate-key-"><code translate="no" v-pre>duplicate key '...'</code></h3>
+<p>The same key appears twice in the same object.</p>
+<div id="duplicate-key--code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG
+[SERVER_ID]
+prefix: &quot;!&quot;
+prefix: &quot;?&quot;</code></pre>
+</doc-codeblock></div>
+<p>Decide which one you meant and delete the other. If you genuinely want the later value to win, load the file with the duplicate policy set to <code translate="no" v-pre>last</code> — see <a href="../syntax/#duplicate-keys"><em>Duplicate keys</em></a>.</p>
+<h3 id="section--is-defined-twice"><code translate="no" v-pre>section '[...]' is defined twice</code></h3>
+<p>The same section header appears twice. Merge the two by hand, or load with the <code translate="no" v-pre>last</code> policy, which merges them for you.</p>
+<h3 id="cannot-open-section--"><code translate="no" v-pre>cannot open section '[...]': ...</code></h3>
+<p>A header tried to nest inside something that isn&#x27;t an object.</p>
+<div id="cannot-open-section---code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG -- guild is a number, so [guild.limits] has nowhere to go
+guild: 1
+
+[guild.limits]
+rate: 30</code></pre>
+</doc-codeblock></div>
+<h3 id="unterminated-string-literal"><code translate="no" v-pre>unterminated string literal</code></h3>
+<p>A quote was opened and the file ended before it closed.</p>
+<div id="unterminated-string-literal-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG -- and the file stops right there
+name: &quot;Clanker</code></pre>
+</doc-codeblock></div>
+<p>Watch for a stray <code translate="no" v-pre>&quot;</code> inside a string — the second quote closes it early and the third opens a new one that never ends. If the string had a line break in it rather than running to the end of the file, you get the longer message below instead.</p>
+<h3 id="unterminated-string-literal-use-n-for-a-line-break"><code translate="no" v-pre>unterminated string literal (use \n for a line break)</code></h3>
+<p>A quoted string ran into an actual line break.</p>
+<div id="unterminated-string-literal-use-n-for-a-line-break-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG
+message: &quot;first line
+second line&quot;</code></pre>
+</doc-codeblock></div>
+<div id="unterminated-string-literal-use-n-for-a-line-break-code-2" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># RIGHT
+message: &quot;first line\nsecond line&quot;</code></pre>
+</doc-codeblock></div>
+<div id="unterminated-string-literal-use-n-for-a-line-break-code-3" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># ALSO RIGHT -- a trailing backslash continues the literal
+message: &quot;first line \
+second line&quot;</code></pre>
+</doc-codeblock></div>
+<h3 id="invalid-escape-sequence-x"><code translate="no" v-pre>invalid escape sequence '\x'</code></h3>
+<p>A <code translate="no" v-pre>\</code> followed by something JPCL doesn&#x27;t recognise.</p>
+<div id="invalid-escape-sequence-x-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG
+k: &quot;a\qb&quot;</code></pre>
+</doc-codeblock></div>
+<p>To mean a literal backslash, double it: <code translate="no" v-pre>&quot;a\\qb&quot;</code>. <a href="../spec/#escape-sequences"><em>Escape sequences</em></a> lists everything that is valid after a backslash.</p>
+<h3 id="u-escape-needs-4-hex-digits--u-escape-needs-8-hex-digits"><code translate="no" v-pre>'\u...' escape needs 4 hex digits</code> / <code translate="no" v-pre>'\U...' escape needs 8 hex digits</code></h3>
+<p>A Unicode escape was cut short. <code translate="no" v-pre>\u</code> takes exactly four hex digits, <code translate="no" v-pre>\U</code> exactly eight — pad with leading zeros: <code translate="no" v-pre>\U0001F600</code>.</p>
+<p>The usual cause is not a Unicode escape at all, but a <strong>Windows path</strong>:</p>
+<div id="u-escape-needs-4-hex-digits--u-escape-needs-8-hex-digits-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG -- \U is read as the start of an 8-digit escape
+path: &quot;C:\Users\notes&quot;</code></pre>
+</doc-codeblock></div>
+<div id="u-escape-needs-4-hex-digits--u-escape-needs-8-hex-digits-code-2" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># RIGHT -- double the backslashes
+path: &quot;C:\\Users\\notes&quot;</code></pre>
+</doc-codeblock></div>
+<div id="u-escape-needs-4-hex-digits--u-escape-needs-8-hex-digits-code-3" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># ALSO RIGHT -- forward slashes work on Windows too
+path: &quot;C:/Users/notes&quot;</code></pre>
+</doc-codeblock></div>
+<h3 id="u-is-an-unpaired-surrogate--u-is-outside-the-unicode-range"><code translate="no" v-pre>'\u...' is an unpaired surrogate</code> / <code translate="no" v-pre>'\U...' is outside the Unicode range</code></h3>
+<p>The escape names something that isn&#x27;t a valid character. Half of a surrogate pair, or a code point above <code translate="no" v-pre>U+10FFFF</code>. Write the character itself instead, or use the correct code point.</p>
+<h3 id="unterminated-escape-sequence"><code translate="no" v-pre>unterminated escape sequence</code></h3>
+<p>The file ended immediately after a <code translate="no" v-pre>\</code>.</p>
+<h3 id="nesting-deeper-than-200-levels"><code translate="no" v-pre>nesting deeper than 200 levels</code></h3>
+<p><code translate="no" v-pre>{</code> and <code translate="no" v-pre>[</code> may nest 200 deep. If you have hit this legitimately, the structure wants flattening — dotted section headers are usually the answer. If you have hit it accidentally, you probably have a missing <code translate="no" v-pre>}</code> somewhere and JPCL has been descending ever since.</p>
+<hr>
+<h2 id="write-errors">Write errors</h2>
+<p>Raised when your <em>program</em> hands JPCL something it cannot put in a file. <code translate="no" v-pre>JPEncodeError</code> in Python and JavaScript, <code translate="no" v-pre>*jpcl.EncodeError</code> in Go. These are bugs in the calling code rather than problems with a file.</p>
+<h3 id="object-of-type--is-not-serialisable-to-jp-pass-default-to-convert-it"><code translate="no" v-pre>object of type '...' is not serialisable to .jp; pass default= to convert it</code></h3>
+<p>You tried to write a value JPCL has no representation for — a <code translate="no" v-pre>datetime</code>, a <code translate="no" v-pre>set</code>, a class instance, a function.</p>
+<p>Supply a <code translate="no" v-pre>default</code> hook that converts it:</p>
+<doc-tabs>
+<doc-tab v-cloak id="python">
+<template #title>Python</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">jpcl.dumps(data, default=str)
+
+# or something more deliberate
+def convert(value):
+    if isinstance(value, datetime):
+        return value.isoformat()
+    raise TypeError(value)
+
+jpcl.dumps(data, default=convert)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="javascript">
+<template #title>JavaScript</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">jpcl.dumps(data, {
+  default: (v) =&gt; (v instanceof Date ? v.toISOString() : String(v)),
+});</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="go">
+<template #title>Go</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-go"><code v-pre class="language-go">opts := jpcl.DefaultStringifyOptions()
+opts.Default = func(v any) any {
+	if t, ok := v.(time.Time); ok {
+		return t.Format(time.RFC3339)
+	}
+	return fmt.Sprint(v)
+}
+text, err := jpcl.Dumps(obj, opts)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<h3 id="default-returned-an-unconverted-"><code translate="no" v-pre>default() returned an unconverted '...'</code></h3>
+<p>Your <code translate="no" v-pre>default</code> hook handed back the same type it was given, which would loop forever. Return something JPCL can write — a string is nearly always the right answer.</p>
+<h3 id="binary-data-has-no-jp-representation-decode-or-encode-it-to-a-string-first"><code translate="no" v-pre>binary data has no .jp representation; decode or encode it to a string first</code></h3>
+<p>You passed <code translate="no" v-pre>bytes</code> (Python), a <code translate="no" v-pre>Buffer</code>/<code translate="no" v-pre>Uint8Array</code> (JavaScript) or <code translate="no" v-pre>[]byte</code> (Go). <code translate="no" v-pre>.jp</code> is a text format. Decode it if it&#x27;s text, or base64-encode it if it isn&#x27;t.</p>
+<h3 id="keys-must-be-strings-or-ints-got-"><code translate="no" v-pre>keys must be strings (or ints), got '...'</code></h3>
+<p>An object key was something else — a tuple, an object, <code translate="no" v-pre>None</code>. Integer keys are fine and become strings on the way out, which is why <code translate="no" v-pre>[1234567890]</code> sections round-trip.</p>
+<h3 id="circular-reference-detected"><code translate="no" v-pre>circular reference detected</code></h3>
+<p>Something in the structure contains itself, directly or through a chain. A shared reference that isn&#x27;t a cycle is fine — the same list appearing under two keys writes out twice, without complaint.</p>
+<h3 id="the-top-level-of-a-jp-document-must-be-a-mapping-got-"><code translate="no" v-pre>the top level of a .jp document must be a mapping, got '...'</code></h3>
+<p>You passed a list, a string or a number to <code translate="no" v-pre>dumps</code>. The top level of a <code translate="no" v-pre>.jp</code> document is always an object, because top-level values become <code translate="no" v-pre>[SECTION]</code> headers. Wrap it: <code translate="no" v-pre>{&quot;items&quot;: [...]}</code>.</p>
+<hr>
+<h2 id="other-errors">Other errors</h2>
+<h3 id="no-such-config-directory-"><code translate="no" v-pre>no such config directory: ...</code></h3>
+<p><code translate="no" v-pre>load_dir</code> was pointed at a path that doesn&#x27;t exist or isn&#x27;t a directory. Check the path is relative to where the program <em>runs</em>, not to where the source file lives — this catches everyone at least once.</p>
+<h3 id="this-config-has-no-path-to-reload-from--this-config-has-no-path-call-savepath-or-set-path-first"><code translate="no" v-pre>this config has no path to reload from</code> / <code translate="no" v-pre>this config has no path; call save(path) or set .path first</code></h3>
+<p>You called <code translate="no" v-pre>reload()</code> or <code translate="no" v-pre>save()</code> on a <code translate="no" v-pre>JPConfig</code> that was built from a string rather than loaded from a file, so it has no path to work with. Pass a path to <code translate="no" v-pre>save()</code>, set <code translate="no" v-pre>.path</code>, or construct the config with one.</p>
+<h3 id="indent-must-be--0"><code translate="no" v-pre>indent must be &gt;= 0</code></h3>
+<p>A negative <code translate="no" v-pre>indent</code> was passed to the writer.</p>
+<h3 id="unknown-options-"><code translate="no" v-pre>unknown option(s): ...</code></h3>
+<p>A typo&#x27;d option name. The message lists what it didn&#x27;t recognise — check the spelling and the case convention for your language (<code translate="no" v-pre>sort_keys</code> in Python, <code translate="no" v-pre>sortKeys</code> in JavaScript).</p>
+<hr>
+<h2 id="problems-that-produce-no-error-at-all">Problems that produce no error at all</h2>
+<p>The hard ones. Nothing crashes; the file is just not what you meant.</p>
+<h3 id="my-value-came-out-as-a-string">My value came out as a string</h3>
+<p>An unquoted value is read as a keyword, then as a number, then as text. If it isn&#x27;t one of the first two, it&#x27;s text.</p>
+<div id="my-value-came-out-as-a-string-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">version: 1.2.3      # string &quot;1.2.3&quot; -- not a number, so it stays text
+enabled: yes        # string &quot;yes&quot; -- 'yes' is not a keyword; use true
+count: 1_000        # integer 1000 -- underscores are separators
+id: &quot;42&quot;            # string &quot;42&quot; -- the quotes win</code></pre>
+</doc-codeblock></div>
+<p><code translate="no" v-pre>true</code>, <code translate="no" v-pre>false</code>, <code translate="no" v-pre>null</code>, <code translate="no" v-pre>none</code>, <code translate="no" v-pre>nil</code>, <code translate="no" v-pre>inf</code>, <code translate="no" v-pre>infinity</code> and <code translate="no" v-pre>nan</code> are the keywords. <code translate="no" v-pre>yes</code>, <code translate="no" v-pre>no</code>, <code translate="no" v-pre>on</code> and <code translate="no" v-pre>off</code> are not.</p>
+<h3 id="my-value-came-out-as-null">My value came out as null</h3>
+<p>You wrote the value on the line after the colon:</p>
+<div id="my-value-came-out-as-null-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none"># WRONG -- config is null, and { retries: 3 } is a syntax error just after
+config:
+  { retries: 3 }</code></pre>
+</doc-codeblock></div>
+<p>The opening bracket must sit on the colon&#x27;s line. See <a href="../syntax/#empty-values"><em>Empty values</em></a> for why.</p>
+<h3 id="half-of-my-value-vanished">Half of my value vanished</h3>
+<p>An unquoted value stops at a <code translate="no" v-pre>#</code>, a comma, or a closing bracket. With a <code translate="no" v-pre>#</code>, the rest is read as a comment and silently discarded:</p>
+<div id="half-of-my-value-vanished-code-1" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">label: issue #1 reported
+# -&gt; label is &quot;issue&quot;</code></pre>
+</doc-codeblock></div>
+<p>With a comma it usually errors instead, because what follows is read as the next key:</p>
+<div id="half-of-my-value-vanished-code-2" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">csv: a, b, c
+# -&gt; expected ':' after key 'b', found ','</code></pre>
+</doc-codeblock></div>
+<p>Quote it either way:</p>
+<div id="half-of-my-value-vanished-code-3" class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">jp</div>
+<pre translate="no" class="language-none"><code v-pre class="language-none">label: &quot;issue #1 reported&quot;
+csv: &quot;a, b, c&quot;</code></pre>
+</doc-codeblock></div>
+<h3 id="my-comments-disappeared">My comments disappeared</h3>
+<p>Something rewrote the file. <code translate="no" v-pre>jpcl fmt -w</code>, or a program calling <code translate="no" v-pre>save()</code> or <code translate="no" v-pre>dump()</code>. The writer reproduces data, not annotations.</p>
+<p>Keep hand-annotated files separate from the files your program writes to. A common split is a committed <code translate="no" v-pre>servers.example.jp</code> full of comments, and a live <code translate="no" v-pre>servers.jp</code> that the program owns.</p>
+<h3 id="my-sections-came-back-in-a-different-order">My sections came back in a different order</h3>
+<p>Two possibilities.</p>
+<p><strong>In JavaScript</strong>, keys that look like integers are always enumerated first, in ascending order, before everything else. That is the language, not JPCL. A <code translate="no" v-pre>[1234567890]</code> section will come out ahead of <code translate="no" v-pre>[SERVER_ID]</code> however you wrote it. Pass a <code translate="no" v-pre>Map</code> to <code translate="no" v-pre>dumps</code> if that order matters.</p>
+<p><strong>In any implementation</strong>, <code translate="no" v-pre>sort_keys</code> was switched on somewhere.</p>
+<h3 id="a-root-level-key-moved-to-the-top-of-the-file">A root-level key moved to the top of the file</h3>
+<p>That is deliberate. A scalar written after a header would read back as part of that section, so the writer hoists all root-level scalars above the first header. The data is unchanged. See <a href="../spec/#round-trips"><em>Round trips</em></a>.</p>
+<h3 id="10-came-back-as-1"><code translate="no" v-pre>1.0</code> came back as <code translate="no" v-pre>1</code></h3>
+<p>JavaScript only. It has a single number type, so a whole float is indistinguishable from an integer. Python and Go keep the distinction.</p>
+<h3 id="a-big-id-lost-its-last-few-digits">A big ID lost its last few digits</h3>
+<p>You are in Go, where integers are <code translate="no" v-pre>int64</code>, and the value exceeded it — or in JavaScript with <code translate="no" v-pre>integers: &quot;number&quot;</code> forced on. In JavaScript&#x27;s default mode, anything past 2^53 arrives as a <code translate="no" v-pre>bigint</code> and stays exact. See <a href="../spec/#integer-width"><em>Integer width</em></a>.</p>
+<h3 id="my-edits-to-the-file-do-nothing">My edits to the file do nothing</h3>
+<p>Most programs read their config once, at startup. Restart it. If it still ignores you, check you are editing the file the program actually loads — print the resolved path at startup and you will usually find the answer immediately.</p>
+<hr>
+<h2 id="still-stuck">Still stuck?</h2>
+<p>Three things worth trying, in order:</p>
+<doc-steps>
+   <doc-step id="run-jpcl-check-on-the-file" step-number="1">
+      <template #title><em>Run <code translate="no" v-pre>jpcl check</code> on the file</em></template>
+<p>It gives you the first error with an exact position, which is more than most programs will.</p>
+   </doc-step>
+   <doc-step id="run-jpcl-to-json-on-the-file" step-number="2">
+      <template #title><em>Run <code translate="no" v-pre>jpcl to-json</code> on the file</em></template>
+<p>This shows you exactly what your file parses to. When the file is valid but the values are wrong, this finds it in seconds.</p>
+   </doc-step>
+   <doc-step id="reduce-it" step-number="3">
+      <template #title><em>Reduce it</em></template>
+<p>Delete half the file and check again. Repeat. Three or four rounds narrows almost anything to a single line.</p>
+   </doc-step>
+</doc-steps>
+<p>If you have found a real bug, open an issue on the relevant repository under <a href="https://github.com/jpcl-lang"><em>jpcl-lang</em></a>, and include the smallest file that reproduces it.</p>
+
+                
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+            </div>
+            <footer id="retype-content-footer" class="clear-both">
+            
+                <nav id="retype-nextprev" class="print:hidden flex mt-14">
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../jpcl/cli/">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                            <span>
+                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
+                                <span class="block mt-1">Command line</span>
+                            </span>
+                        </a>
+                    </div>
+            
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../jpcl/spec/">
+                            <span>
+                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
+                                <span class="block mt-1">Language reference</span>
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                        </a>
+                    </div>
+                </nav>
+            </footer>
+        </main>
+
+        <div id="retype-page-footer" class="print:border-none border-t border-base-border pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                <div id="retype-footer-links" class="print:hidden">
+                    <ul class="flex flex-wrap items-center text-sm">
+                        <li>
+                            <a class="block mr-4 py-2 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-footer-link hover:text-footer-link-hover md:mb-0" href="https://github.com/doughmination">GitHub</a>
+                        </li>
+                        <li>
+                            <a class="block mr-4 py-2 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-footer-link hover:text-footer-link-hover md:mb-0" href="https://discord.gg/N8gCjS294R">Discord</a>
+                        </li>
+                        <li>
+                            <a class="block mr-4 py-2 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-footer-link hover:text-footer-link-hover md:mb-0" href="https://matrix.to/#/#doughmination:matrix.org">Matrix</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="retype-copyright" class="print:justify-center py-2 text-footer-text font-footer-link text-sm leading-relaxed"><p>© 2026 Clove Twilight - All Rights Reserved.</p></div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-sidebar-right-bg border-sidebar-right-border lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:translate-x-0 sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+        </div>
+    </div>
+
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+    <div id="retype-overlay-target"></div>
+
+        <script data-cfasync="false">window.__DOCS__ = { "title": "When it goes wrong", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/jpcl/errors.md" }</script>
+</body>
+</html>

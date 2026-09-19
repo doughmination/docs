@@ -1,0 +1,276 @@
+/* ---------------------------------------------------------------------------
+   JPCL palette, applied over Retype's dark theme.
+
+   Colours are the ones in jpcl-lang/web (assets/css/main.css and
+   tools/src/site_tools/palette.py), so the docs and the language site stay in
+   step. Traditional Japanese names kept so the palette stays traceable:
+
+     kon       #0F2540   the icon ground: panels, cards, code
+     kon       #192236   the page
+     momo      #F596AA   the accent
+     sakura    #FEDFE1   nested values
+     torinoko  #DAC9A6   keys
+     byakugun  #83CCD2   numbers
+     fuji      #A99CD6   keywords
+
+   Retype's own `theme:` project setting does this natively but is Pro only,
+   so these override its variables instead. The site is dark-only (see
+   _includes/head.html), so only the dark scope is redefined.
+
+   Selectors are deliberately one step MORE specific than Retype's own
+   (`html.dark` against its `.dark`) rather than merely equal. Retype navigates
+   with Turbo, which re-appends its stylesheet after this one on a client-side
+   visit; anything relying on "my file loads later" therefore wins on first
+   load and silently loses as soon as you click through to another page.
+--------------------------------------------------------------------------- */
+
+html:root,
+html.dark {
+  /* Surfaces */
+  --base-bg: #192236;
+  --panel: #0f2540;
+
+  /* Ink */
+  --base-text: #e7eef7;
+  --base-text-strong: #ffffff;
+  --base-text-muted: #9db0c6;
+  --heading-text: #ffffff;
+  --description-color: #9db0c6;
+  --footer-text: #9db0c6;
+
+  /* Hairlines */
+  --base-border: rgb(154 182 214 / 16%);
+  --base-border-hover: rgb(154 182 214 / 28%);
+  --base-border-strong: rgb(154 182 214 / 40%);
+
+  /* Momo accent */
+  --base-link: #f596aa;
+  --base-link-hover: #f7aabb;
+  --body-link-decoration-color: rgb(245 150 170 / 45%);
+  --body-link-decoration-color-hover: #f7aabb;
+
+  --base-item-bg-hover: rgb(245 150 170 / 10%);
+  --base-item-bg-active: rgb(245 150 170 / 16%);
+
+  --selection-bg: rgb(245 150 170 / 30%);
+  --selection-text: #ffffff;
+
+  --branding-label-text: #0f2540;
+  --branding-label-border: #f596aa;
+  --branding-label-bg: #f596aa;
+
+  /* Navigation and contents */
+  --nav-item-text: #9db0c6;
+  --nav-item-text-stack: #e7eef7;
+  --nav-item-button: #8092aa;
+  --toc-heading: #8092aa;
+  --toc-text: #9db0c6;
+
+  /* Search */
+  --search-highlight-bg: rgb(245 150 170 / 28%);
+  --search-modal-bg: #0f2540;
+  --search-modal-border: rgb(154 182 214 / 28%);
+  --search-results-bg: #0f2540;
+  --search-result-text: #9db0c6;
+  --search-result-hover: rgb(245 150 170 / 12%);
+  --search-result-active-ring: rgb(154 182 214 / 28%);
+  --search-result-border: rgb(154 182 214 / 16%);
+  --search-result-code-bg: #192236;
+  --search-no-results-icon: #3a5577;
+  --search-footer-kbd-bg: #192236;
+  --search-backdrop: rgb(15 20 32 / 80%);
+
+  /* Cards */
+  --card-border: rgb(154 182 214 / 16%);
+  --card-border-hover: rgb(154 182 214 / 28%);
+  --card-image-bg: #0f2540;
+  --card-image-inner-border: rgb(154 182 214 / 16%);
+  --card-footer-text: #9db0c6;
+
+  /* Menus and skeletons */
+  --skeleton-bg: #0f2540;
+  --action-primary-hover-text: #ffffff;
+  --action-toggle-hover-text: #ffffff;
+  --action-menu-item-description-text: #9db0c6;
+  --action-menu-item-hover-text: #ffffff;
+  --action-menu-item-hover-bg: rgb(245 150 170 / 12%);
+  --action-menu-panel-background: #0f2540;
+
+  /* Callouts (!!! blocks). Semantic hues are kept where the palette has one:
+     torinoko reads warm for a warning, the language site's own error red for
+     danger, byakugun for information, fuji for a question, ainezu for the
+     neutral secondary. */
+  --callout-base-bg: #0f2540;
+  --callout-base: #f596aa;
+  --callout-primary: #f596aa;
+  --callout-secondary: #6e7b8b;
+  --callout-info: #83ccd2;
+  --callout-tip: #83ccd2;
+  --callout-success: #83ccd2;
+  --callout-warning: #dac9a6;
+  --callout-danger: #ff8f9e;
+  --callout-question: #a99cd6;
+  --callout-light: #9db0c6;
+  --callout-dark: #0f2540;
+  --callout-contrast: #3a5577;
+  --callout-contrast-bg: #0f2540;
+  --callout-contrast-border: rgb(154 182 214 / 28%);
+  --callout-contrast-text: #e7eef7;
+
+  /* Numbered steps (>>> panels) and task lists */
+  --steps-step-number-bg: #f596aa;
+  --steps-step-number-border: #f596aa;
+  --steps-step-number-text: #0f2540;
+  --steps-step-line: rgb(154 182 214 / 28%);
+  --list-checked: #f596aa;
+
+  /* Tabbed content (+++ blocks) */
+  --tab-text: #9db0c6;
+  --tab-text-hover: #f7aabb;
+  --tab-text-active: #f596aa;
+  --tab-border-active: #f596aa;
+  --tab-border-hover: rgb(154 182 214 / 28%);
+
+  --badge-base-hover: rgb(245 150 170 / 18%);
+  --footnote-popper-link-hover: #f7aabb;
+  --footnote-popper-code-bg: #0f2540;
+}
+
+/* Code blocks sit on the icon ground, as they do on the language site. ----- */
+
+.codeblock-wrapper,
+.codeblock-wrapper pre,
+.codeblock-wrapper .codeblock-title,
+.codeblock-wrapper .simplebar-content,
+.codeblock-wrapper code[class*="language-"] {
+  background-color: #0f2540 !important;
+}
+
+.codeblock-wrapper code[class*="language-"] {
+  color: #e7eef7;
+}
+
+.codeblock-wrapper .codeblock-title {
+  color: #9db0c6;
+  border-bottom: 1px solid rgb(154 182 214 / 16%);
+}
+
+/* Inline code: torinoko, the colour the language site gives keys.
+
+   Scoped away from code blocks by the absence of a `language-*` class, not by
+   the parent: at runtime SimpleBar wraps a block's <code> in its own <div>, so
+   `:not(pre) > code` matches whole code blocks — and an inline border on
+   multi-line text is then drawn once per line.
+
+   `!important` is avoided here so the `color: inherit` rule below can still
+   keep inline code inside a link the same colour as the link; the `html`
+   prefix supplies the winning specificity instead. */
+html.dark .retype-markdown code:not([class*="language-"]):not(.member-signature) {
+  background-color: #0f2540;
+  border-color: rgb(154 182 214 / 16%);
+  color: #dac9a6;
+}
+
+/* Inline code inside a link stays the link's colour, as Retype intends. */
+html.dark .retype-markdown a:not(.no-link) code:not([class*="language-"]):not(.member-signature) {
+  color: inherit;
+}
+
+/* Syntax highlighting: the same scopes the language site and the VS Code
+   grammar use, so a Python or JSON block reads in the JPCL palette too.
+   `.jp` blocks are `language-none` and are not tokenised, so they stay plain
+   ink — which is also how the format's own examples read best. */
+
+.codeblock-wrapper .token.comment,
+.codeblock-wrapper .token.prolog,
+.codeblock-wrapper .token.cdata,
+.codeblock-wrapper .token.doctype {
+  color: #8496ad;                 /* comment */
+}
+
+.codeblock-wrapper .token.punctuation,
+.codeblock-wrapper .token.operator,
+.codeblock-wrapper .token.entity {
+  color: #8fa3bc;                 /* punct */
+}
+
+.codeblock-wrapper .token.property,
+.codeblock-wrapper .token.attr-name,
+.codeblock-wrapper .token.tag,
+.codeblock-wrapper .token.selector,
+.codeblock-wrapper .token.symbol {
+  color: #dac9a6;                 /* torinoko: keys */
+}
+
+.codeblock-wrapper .token.string,
+.codeblock-wrapper .token.attr-value,
+.codeblock-wrapper .token.char,
+.codeblock-wrapper .token.regex,
+.codeblock-wrapper .token.inserted {
+  color: #fedfe1;                 /* sakura: values */
+}
+
+.codeblock-wrapper .token.number,
+.codeblock-wrapper .token.boolean,
+.codeblock-wrapper .token.constant {
+  color: #83ccd2;                 /* byakugun: numbers */
+}
+
+.codeblock-wrapper .token.keyword,
+.codeblock-wrapper .token.atrule,
+.codeblock-wrapper .token.rule,
+.codeblock-wrapper .token.important {
+  color: #a99cd6;                 /* fuji: keywords */
+}
+
+.codeblock-wrapper .token.function,
+.codeblock-wrapper .token.class-name,
+.codeblock-wrapper .token.maybe-class-name,
+.codeblock-wrapper .token.builtin,
+.codeblock-wrapper .token.namespace {
+  color: #f596aa;                 /* momo, as the section header is */
+}
+
+.codeblock-wrapper .token.deleted {
+  color: #ff8f9e;                 /* error */
+}
+
+/* The line-number gutter is a separate, absolutely positioned div that Retype
+   inserts at runtime carrying Tailwind's `bg-dark-800`, so it paints over the
+   block's own background and has to be targeted directly. `.absolute.w-14` is
+   what distinguishes it inside a code block. #3A5577 is the stem colour from
+   the JPCL icon. */
+.codeblock-wrapper .codeblock > .absolute.w-14 {
+  background-color: #0f2540 !important;
+  color: #3a5577 !important;
+}
+
+/* Tables ------------------------------------------------------------------
+
+   Retype styles these from its neutral greys (--dark-500/-650/-800), not from
+   any theme variable, so they stay charcoal unless the rules themselves are
+   restated. Selectors mirror Retype's exactly; this file loads later and so
+   wins the tie. */
+
+html.dark .retype-markdown .table-wrapper,
+html.dark .retype-markdown table td,
+html.dark .retype-markdown table th,
+html.dark .retype-markdown table tr {
+  border-color: rgb(154 182 214 / 16%);
+}
+
+html.dark .retype-markdown table th {
+  background-color: #0f2540;
+  color: #e7eef7;
+}
+
+/* Zebra striping, where a table asks for it: --raised from the language site. */
+html.dark .retype-markdown table.striped tbody > tr:nth-child(2n) td,
+html.dark .retype-markdown table.clean.striped tbody > tr:nth-child(odd) td {
+  background-color: rgb(255 255 255 / 4%);
+}
+
+/* Blockquotes and callout accents pick up momo rather than Retype's blue. */
+blockquote {
+  border-left-color: rgb(245 150 170 / 45%);
+}

@@ -4,63 +4,93 @@
     <loc>https://docs.doughmination.gay/</loc>
   </url>
   <url>
-    <loc>https://docs.doughmination.gay/projects/sandrone/</loc>
+    <loc>https://docs.doughmination.gay/sandrone/</loc>
+  </url>
+  <url>
+    <loc>https://docs.doughmination.gay/jpcl/</loc>
+  </url>
+  <url>
+    <loc>https://docs.doughmination.gay/pkviewer/</loc>
+  </url>
+  <url>
+    <loc>https://docs.doughmination.gay/sandrone/commands/</loc>
+  </url>
+  <url>
+    <loc>https://docs.doughmination.gay/sandrone/official-links/</loc>
+  </url>
+  <url>
+    <loc>https://docs.doughmination.gay/sandrone/downloads/</loc>
+  </url>
+  <url>
+    <loc>https://docs.doughmination.gay/sandrone/setup/</loc>
+  </url>
+  <url>
+    <loc>https://docs.doughmination.gay/sandrone/privacy/</loc>
+  </url>
+  <url>
+    <loc>https://docs.doughmination.gay/sandrone/errors/</loc>
+  </url>
+  <url>
+    <loc>https://docs.doughmination.gay/sandrone/tos/</loc>
+  </url>
+  <url>
+    <loc>https://docs.doughmination.gay/jpcl/start/</loc>
+  </url>
+  <url>
+    <loc>https://docs.doughmination.gay/jpcl/npm/</loc>
+  </url>
+  <url>
+    <loc>https://docs.doughmination.gay/doughmination-music/</loc>
+  </url>
+  <url>
+    <loc>https://docs.doughmination.gay/jpcl/syntax/</loc>
+  </url>
+  <url>
+    <loc>https://docs.doughmination.gay/sandrone/flags/</loc>
+  </url>
+  <url>
+    <loc>https://docs.doughmination.gay/jpcl/recipes/</loc>
+  </url>
+  <url>
+    <loc>https://docs.doughmination.gay/jpcl/errors/</loc>
+  </url>
+  <url>
+    <loc>https://docs.doughmination.gay/jpcl/go/</loc>
   </url>
   <url>
     <loc>https://docs.doughmination.gay/faq/</loc>
   </url>
   <url>
-    <loc>https://docs.doughmination.gay/projects/pkviewer/</loc>
+    <loc>https://docs.doughmination.gay/sandrone/units/</loc>
   </url>
   <url>
-    <loc>https://docs.doughmination.gay/projects/sandrone/commands/</loc>
+    <loc>https://docs.doughmination.gay/jpcl/py/</loc>
   </url>
   <url>
-    <loc>https://docs.doughmination.gay/projects/sandrone/official-links/</loc>
+    <loc>https://docs.doughmination.gay/jpcl/spec/</loc>
   </url>
   <url>
-    <loc>https://docs.doughmination.gay/projects/sandrone/downloads/</loc>
+    <loc>https://docs.doughmination.gay/pkviewer/badges/</loc>
   </url>
   <url>
-    <loc>https://docs.doughmination.gay/projects/sandrone/setup/</loc>
+    <loc>https://docs.doughmination.gay/sandrone/development/</loc>
   </url>
   <url>
-    <loc>https://docs.doughmination.gay/projects/sandrone/errors/</loc>
+    <loc>https://docs.doughmination.gay/jpcl/cli/</loc>
   </url>
   <url>
-    <loc>https://docs.doughmination.gay/projects/sandrone/privacy/</loc>
+    <loc>https://docs.doughmination.gay/pkviewer/appearance/</loc>
   </url>
   <url>
-    <loc>https://docs.doughmination.gay/projects/sandrone/tos/</loc>
+    <loc>https://docs.doughmination.gay/pkviewer/css/</loc>
   </url>
   <url>
-    <loc>https://docs.doughmination.gay/projects/sandrone/flags/</loc>
+    <loc>https://docs.doughmination.gay/pkviewer/addresses/</loc>
   </url>
   <url>
-    <loc>https://docs.doughmination.gay/projects/sandrone/units/</loc>
+    <loc>https://docs.doughmination.gay/pkviewer/privacy/</loc>
   </url>
   <url>
-    <loc>https://docs.doughmination.gay/projects/sandrone/development/</loc>
-  </url>
-  <url>
-    <loc>https://docs.doughmination.gay/projects/pkviewer/badges/</loc>
-  </url>
-  <url>
-    <loc>https://docs.doughmination.gay/projects/doughmination-music/</loc>
-  </url>
-  <url>
-    <loc>https://docs.doughmination.gay/projects/pkviewer/appearance/</loc>
-  </url>
-  <url>
-    <loc>https://docs.doughmination.gay/projects/pkviewer/addresses/</loc>
-  </url>
-  <url>
-    <loc>https://docs.doughmination.gay/projects/pkviewer/css/</loc>
-  </url>
-  <url>
-    <loc>https://docs.doughmination.gay/projects/pkviewer/claiming/</loc>
-  </url>
-  <url>
-    <loc>https://docs.doughmination.gay/projects/pkviewer/privacy/</loc>
+    <loc>https://docs.doughmination.gay/pkviewer/claiming/</loc>
   </url>
 </urlset>

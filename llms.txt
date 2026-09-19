@@ -1,33 +1,44 @@
 ﻿#  | Doughmination Docs
 
-> This is documentiation for my various projects and code.
+> This is the official docs for my various projects and code.
 
 - [Welcome](https://docs.doughmination.gay/index.md): Welcome
+- [Sandrone](https://docs.doughmination.gay/sandrone.md): Sandrone is an all-in-one Discord bot: lookups, text and developer tools, media embeds, pride flag avatars, YouTube downloads, and a handful of things that exist purely for fun.
+- [pkviewer](https://docs.doughmination.gay/pkviewer.md): pkviewer turns a PluralKit system into a website.
+- [JPCL - Just Parsable Configuration Language](https://docs.doughmination.gay/jpcl.md): A configuration language that borrows TOML's sections and JSON's nesting.
+- [Doughmination Music](https://docs.doughmination.gay/doughmination-music.md): Doughmination Music is a free public player.
 - [FAQ](https://docs.doughmination.gay/faq.md): They are served from my CDN, which is a Cloudflare Pages project.
 
-## Projects
+## Sandrone
 
-### Sandrone
+- [Commands](https://docs.doughmination.gay/sandrone/commands.md): Everything Sandrone answers to. All of them are slash commands, so Discord will fill in the options for you as you type.
+- [Adding Sandrone](https://docs.doughmination.gay/sandrone/setup.md): Sandrone can be added two different ways, and they are not the same thing.
+- [Official links](https://docs.doughmination.gay/sandrone/official-links.md): Discord bots get impersonated. A copied avatar, a copied name and a link to somewhere that wants your password is a two-minute job, so this page is the reference for what the real Sandrone actually looks like and where it will actually send you.
+- [Hosted downloads](https://docs.doughmination.gay/sandrone/downloads.md): /yt-dlp is the one command that leaves something on disk. This page explains exactly what, where, for how long, and who can reach it — because "the bot hosts a file for you" deserves more than a footnote.
+- [Pride flags](https://docs.doughmination.gay/sandrone/flags.md): /pride wraps a pride flag around a profile picture. Thirty flags, two at once if you like, still or spinning, with enough knobs to get something that actually looks good rather than something that merely exists.
+- [Unit reference](https://docs.doughmination.gay/sandrone/units.md): Every unit /convert knows, by category. Around 100 of them across 12 categories.
+- [Error messages](https://docs.doughmination.gay/sandrone/errors.md): What Sandrone says when something goes wrong, and what it actually means. Most of these are the bot telling you something useful rather than falling over.
+- [Development](https://docs.doughmination.gay/sandrone/development.md): How Sandrone is put together, and how to run it locally if you're contributing.
+- [Terms of Service](https://docs.doughmination.gay/sandrone/tos.md): Effective 17 September 2026
+- [Privacy Policy](https://docs.doughmination.gay/sandrone/privacy.md): Effective 17 September 2026
 
-- [Sandrone](https://docs.doughmination.gay/projects/sandrone.md): Sandrone is an all-in-one Discord bot: lookups, text and developer tools, media embeds, pride flag avatars, YouTube downloads, and a handful of things that exist purely for fun.
-- [Commands](https://docs.doughmination.gay/projects/sandrone/commands.md): Everything Sandrone answers to. All of them are slash commands, so Discord will fill in the options for you as you type.
-- [Adding Sandrone](https://docs.doughmination.gay/projects/sandrone/setup.md): Sandrone can be added two different ways, and they are not the same thing.
-- [Official links](https://docs.doughmination.gay/projects/sandrone/official-links.md): Discord bots get impersonated. A copied avatar, a copied name and a link to somewhere that wants your password is a two-minute job, so this page is the reference for what the real Sandrone actually looks like and where it will actually send you.
-- [Hosted downloads](https://docs.doughmination.gay/projects/sandrone/downloads.md): /yt-dlp is the one command that leaves something on disk. This page explains exactly what, where, for how long, and who can reach it — because "the bot hosts a file for you" deserves more than a footnote.
-- [Pride flags](https://docs.doughmination.gay/projects/sandrone/flags.md): /pride wraps a pride flag around a profile picture. Thirty flags, two at once if you like, still or spinning, with enough knobs to get something that actually looks good rather than something that merely exists.
-- [Unit reference](https://docs.doughmination.gay/projects/sandrone/units.md): Every unit /convert knows, by category. Around 100 of them across 12 categories.
-- [Error messages](https://docs.doughmination.gay/projects/sandrone/errors.md): What Sandrone says when something goes wrong, and what it actually means. Most of these are the bot telling you something useful rather than falling over.
-- [Development](https://docs.doughmination.gay/projects/sandrone/development.md): How Sandrone is put together, and how to run it locally if you're contributing.
-- [Terms of Service](https://docs.doughmination.gay/projects/sandrone/tos.md): Effective 17 September 2026
-- [Privacy Policy](https://docs.doughmination.gay/projects/sandrone/privacy.md): Effective 17 September 2026
+## pkviewer
 
-### pkviewer
+- [Claiming a system](https://docs.doughmination.gay/pkviewer/claiming.md): Claiming a system on pkviewer lets you manage how it appears on the web. It is not ownership of the PluralKit system itself — PluralKit remains in charge of the identity and the data.
+- [Your public address](https://docs.doughmination.gay/pkviewer/addresses.md): Every claimed system is public straight away, at its PluralKit ID:
+- [Appearance and layout](https://docs.doughmination.gay/pkviewer/appearance.md): pkviewer separates two things that are easy to confuse:
+- [Badges and credits](https://docs.doughmination.gay/pkviewer/badges.md): pkviewer has two ways of recognising people, and they are separate on purpose.
+- [CSS reference](https://docs.doughmination.gay/pkviewer/css.md): Custom CSS lets you style your pages by hand, from Advanced CSS in your system's management pages.
+- [Privacy](https://docs.doughmination.gay/pkviewer/privacy.md): pkviewer is a presentation layer over PluralKit. Most of what appears on a pkviewer page is not pkviewer's to begin with — it belongs to PluralKit, and pkviewer only shows what PluralKit already makes public.
 
-- [pkviewer](https://docs.doughmination.gay/projects/pkviewer.md): pkviewer turns a PluralKit system into a website.
-- [Claiming a system](https://docs.doughmination.gay/projects/pkviewer/claiming.md): Claiming a system on pkviewer lets you manage how it appears on the web. It is not ownership of the PluralKit system itself — PluralKit remains in charge of the identity and the data.
-- [Your public address](https://docs.doughmination.gay/projects/pkviewer/addresses.md): Every claimed system is public straight away, at its PluralKit ID:
-- [Appearance and layout](https://docs.doughmination.gay/projects/pkviewer/appearance.md): pkviewer separates two things that are easy to confuse:
-- [Badges and credits](https://docs.doughmination.gay/projects/pkviewer/badges.md): pkviewer has two ways of recognising people, and they are separate on purpose.
-- [CSS reference](https://docs.doughmination.gay/projects/pkviewer/css.md): Custom CSS lets you style your pages by hand, from Advanced CSS in your system's management pages.
-- [Privacy](https://docs.doughmination.gay/projects/pkviewer/privacy.md): pkviewer is a presentation layer over PluralKit. Most of what appears on a pkviewer page is not pkviewer's to begin with — it belongs to PluralKit, and pkviewer only shows what PluralKit already makes public.
-- [Doughmination Music](https://docs.doughmination.gay/projects/doughmination-music.md): Doughmination Music is a free public player.
+## JPCL
+
+- [Start here](https://docs.doughmination.gay/jpcl/start.md): This page assumes you have never used a configuration format before, and that "the terminal" is a place you visit reluctantly. Nothing here is skippable — read it top to bottom once and you will have a working config file you can actually use.
+- [Writing .jp files](https://docs.doughmination.gay/jpcl/syntax.md): Every rule of the format, one at a time, with an example each. This is the page to keep open while you write a config.
+- [Worked examples](https://docs.doughmination.gay/jpcl/recipes.md): Complete, working setups you can copy. Every example shows the .jp file and the code that uses it, in all three languages.
+- [Python](https://docs.doughmination.gay/jpcl/py.md): No runtime dependencies. Python 3.14+.
+- [JavaScript & TypeScript](https://docs.doughmination.gay/jpcl/npm.md): No runtime dependencies. Ships ESM with TypeScript types. Node 20+, Bun and Deno.
+- [Go](https://docs.doughmination.gay/jpcl/go.md): No runtime dependencies — standard library only. Go 1.27+.
+- [Command line](https://docs.doughmination.gay/jpcl/cli.md): All three implementations ship the same jpcl command, with the same subcommands, flags and output. Use whichever you have installed; the results are identical.
+- [When it goes wrong](https://docs.doughmination.gay/jpcl/errors.md): Every message JPCL can produce, what it actually means, and how to fix it. The messages are the same in all three implementations, so this page applies whichever one you are using.
+- [Language reference](https://docs.doughmination.gay/jpcl/spec.md): The precise version of the format: what the parser accepts, what it produces, and what the writer guarantees. This is the page to read if you are implementing JPCL yourself, or if you need to know exactly where a boundary lies.
