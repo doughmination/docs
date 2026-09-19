@@ -10,8 +10,8 @@ branding:
   logoAlign: left
   colors:
     label:
-      text: "#ffffff"
-      background: "#d64f9b"
+      text: "#0f2540"
+      background: "#f596aa"
 
 links:
   - text: Home
@@ -43,7 +43,6 @@ search:
 
 start:
   open: false
-  pro: true
 
 snippets:
   lineNumbers:

@@ -43,4 +43,4 @@ Colour scheme is the one setting a member cannot override — a member page flip
 
 Custom fonts beyond the built-in set, custom domains and per-member logins are not available. Typefaces come from a fixed list so that no page can pull a font from somewhere unexpected.
 
-Custom CSS **is** available, under **Advanced CSS** — see the [CSS reference](/projects/pkviewer/css). It is a restricted dialect rather than a free hand: no `url()`, no absolute positioning, and badges and the site notice cannot be restyled. The reference explains each restriction and why it exists.
+Custom CSS **is** available, under **Advanced CSS** — see the [CSS reference](/pkviewer/css). It is a restricted dialect rather than a free hand: no `url()`, no absolute positioning, and badges and the site notice cannot be restyled. The reference explains each restriction and why it exists.

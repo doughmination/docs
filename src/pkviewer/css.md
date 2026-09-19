@@ -106,7 +106,7 @@ If author CSS could use it, those would become a specificity race that the page 
 ==- Badges and the site notice
 Selectors naming `.pkvb` or `.site-footer` are refused.
 
-A [badge](/projects/pkviewer/badges) is pkviewer's statement about a system, and the notice is what stops a third-party site reading as an official one. Neither is part of your page's appearance. See [why badges cannot be faked](/projects/pkviewer/badges).
+A [badge](/pkviewer/badges) is pkviewer's statement about a system, and the notice is what stops a third-party site reading as an official one. Neither is part of your page's appearance. See [why badges cannot be faked](/pkviewer/badges).
 ===
 
 `@media`, `@supports` and `@font-face` all work. `@keyframes` does not yet.
@@ -117,7 +117,7 @@ Anything else not on the supported property list is skipped and reported, rather
 
 ### Fonts
 
-The typefaces in [Appearance](/projects/pkviewer/appearance) are loaded for you; use `var(--pkv-font-body)` and `var(--pkv-font-heading)` to reach them.
+The typefaces in [Appearance](/pkviewer/appearance) are loaded for you; use `var(--pkv-font-body)` and `var(--pkv-font-heading)` to reach them.
 
 For anything else, load it yourself. The usual Google Fonts line works:
 

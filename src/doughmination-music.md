@@ -1,5 +1,5 @@
 ---
-order: 800
+order: 600
 title: Doughmination Music
 icon: https://m.doughmination.gay/img/avatars/music.png
 ---

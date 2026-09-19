@@ -15,7 +15,7 @@ Anything in this section that starts *"I am missing"* or *"You are missing"* is 
 >>> *"I am missing `Embed Links` to run this command."*
 The **bot's** role doesn't have that permission in this channel. Nearly every reply is an embed, so this one stops almost everything.
 
-Check the channel's permission overwrites as well as the role itself — a channel-level deny beats a server-level allow. The permission table in [Adding Sandrone](/projects/sandrone/setup/#permissions-sandrone-asks-for) lists what each command needs.
+Check the channel's permission overwrites as well as the role itself — a channel-level deny beats a server-level allow. The permission table in [Adding Sandrone](/sandrone/setup/#permissions-sandrone-asks-for) lists what each command needs.
 
 >>> *"I am missing `Attach Files` to run this command."*
 Same thing, for a command that sends an image or a file: `/qr`, `/pride`, `/json` with long output.
@@ -66,9 +66,9 @@ These are answers, not failures — the thing you asked about doesn't exist or i
 | *"There are no letters or digits in that to re-case."* | `/case` was given punctuation only. |
 | *"That isn't valid JSON"* | With the parser's complaint, the line and column, and a caret under the exact character. |
 | *"Invalid pattern"* | `/regex` couldn't compile it, with the column and a caret. |
-| *"I have no unit called `…`"* | `/convert` didn't recognise the unit — pick from the suggestions, or check the [unit reference](/projects/sandrone/units/). |
+| *"I have no unit called `…`"* | `/convert` didn't recognise the unit — pick from the suggestions, or check the [unit reference](/sandrone/units/). |
 | *"… is length and … is mass — those don't convert."* | Cross-category conversion. |
-| *"I have no flag called `…`"* | `/pride` didn't recognise the flag name; the [flag list](/projects/sandrone/flags/) has all thirty and their aliases. |
+| *"I have no flag called `…`"* | `/pride` didn't recognise the flag name; the [flag list](/sandrone/flags/) has all thirty and their aliases. |
 | *"I have no model for `…`"* | `/translate` doesn't have that language code. |
 | *"Those are the same language."* | `/translate` source and target match. |
 | *"Could not decode that text…"* | `/decrypt` was given the wrong method for the text. |
@@ -99,7 +99,7 @@ Some YouTube URLs — many `music.youtube.com` ones — have no video track at a
 Something upstream refused: private, age-gated, region-blocked, deleted, or YouTube changed something and yt-dlp needs a version bump. The underlying reason is in the message.
 >>>
 
-More on all of this in [Hosted downloads](/projects/sandrone/downloads/).
+More on all of this in [Hosted downloads](/sandrone/downloads/).
 
 ## `/pride` in particular
 
@@ -121,9 +121,9 @@ If you can reproduce it, that message is exactly what to put in a [bug report](h
 ## Sandrone just refused
 
 >>> *"No."* / *"Absolutely not."* / *"The puppet has reviewed your request. It has declined."*
-Not an error. Roughly one command in ten, Sandrone turns it down on purpose with a short gold panel instead of running it. There's no cooldown — just run it again. See [Sandrone's moods](/projects/sandrone/commands/#sandrones-moods).
+Not an error. Roughly one command in ten, Sandrone turns it down on purpose with a short gold panel instead of running it. There's no cooldown — just run it again. See [Sandrone's moods](/sandrone/commands/#sandrones-moods).
 >>>
 
 ## Nothing at all happened
 
-If the command didn't even appear, or nothing came back, that's an install or availability issue rather than an error — see [If something isn't working](/projects/sandrone/setup/#if-something-isnt-working).
+If the command didn't even appear, or nothing came back, that's an install or availability issue rather than an error — see [If something isn't working](/sandrone/setup/#if-something-isnt-working).

@@ -21,7 +21,7 @@ The upshot: small downloads never touch storage at all. Only the ones Discord wo
 
 ## The link
 
-Hosted files are served from **`sandrone.doughmination.gay`**, and only from there. A "Sandrone download" on any other domain is not one — see [Official links](/projects/sandrone/official-links/).
+Hosted files are served from **`sandrone.doughmination.gay`**, and only from there. A "Sandrone download" on any other domain is not one — see [Official links](/sandrone/official-links/).
 
 The URL looks like this:
 
@@ -77,7 +77,7 @@ Two options:
 
 Sandrone hands you a file from YouTube. Whether you have the right to that file is between you, YouTube, and whoever owns the content — not something the bot can judge.
 
-Don't use it to redistribute things you have no right to redistribute; that's in the [Terms of Service](/projects/sandrone/tos/), and it's the kind of thing that gets a hobby bot taken down.
+Don't use it to redistribute things you have no right to redistribute; that's in the [Terms of Service](/sandrone/tos/), and it's the kind of thing that gets a hobby bot taken down.
 
 ## Errors you might see
 

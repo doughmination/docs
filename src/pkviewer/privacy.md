@@ -1,7 +1,7 @@
 ---
 order: 10
 label: Privacy
-icon: ../../media/legal.png
+icon: ../media/legal.png
 ---
 
 pkviewer is a presentation layer over PluralKit. Most of what appears on a pkviewer page is not pkviewer's to begin with — it belongs to PluralKit, and pkviewer only shows what PluralKit already makes public.
@@ -14,7 +14,7 @@ Signing in as the system's owner does not change this. pkviewer reads the same p
 
 ### What pkviewer stores
 
-Its own presentation data, and nothing more: your account and the Discord account linked to it, which systems you manage, your chosen addresses, your appearance and layout settings, any social links you add, and any [badges](/projects/pkviewer/badges) pkviewer has offered you along with your answer.
+Its own presentation data, and nothing more: your account and the Discord account linked to it, which systems you manage, your chosen addresses, your appearance and layout settings, any social links you add, and any [badges](/pkviewer/badges) pkviewer has offered you along with your answer.
 
 pkviewer keeps a short-lived copy of PluralKit's public responses so pages load quickly and keep working if PluralKit is briefly unavailable. When a page is showing saved information, it says so.
 

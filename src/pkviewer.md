@@ -1,10 +1,10 @@
 ---
-order: 900
+order: 800
 label: pkviewer
-icon: ../media/pkviewer.svg
+icon: ./media/pkviewer.svg
 ---
 
-![](../media/pkviewer-banner.png)
+![](./media/pkviewer-banner.png)
 
 pkviewer turns a [*PluralKit*](https://pluralkit.me) system into a website.
 
@@ -45,12 +45,12 @@ You can hide public information on pkviewer if you would rather not show it — 
 
 Signing in uses Discord, and only to confirm who you are. pkviewer asks Discord for your account ID and username, nothing else: not your servers, not your messages, not your email.
 
-You never have to hand pkviewer a PluralKit token to claim a system. See [*Claiming a system*](/projects/pkviewer/claiming).
+You never have to hand pkviewer a PluralKit token to claim a system. See [*Claiming a system*](/pkviewer/claiming).
 
 ### Getting started
 
 1. Sign in at [pkviewer.xyz/login](https://pkviewer.xyz/login) with Discord.
-2. Claim your system — usually automatic, see [*Claiming a system*](/projects/pkviewer/claiming).
+2. Claim your system — usually automatic, see [*Claiming a system*](/pkviewer/claiming).
 3. Choose an address and an appearance from [your management page](https://pkviewer.xyz/manage).
 
 ### Open source
@@ -62,13 +62,13 @@ Two things the licence does not cover:
 - **The pkviewer name.** Run your own instance by all means; call it something else if you make it public.
 - **The relationship with PluralKit.** pkviewer is an independent third-party project, not affiliated with or endorsed by PluralKit — and anything built from this source is equally independent. If you run your own copy, say so on it too.
 
-The [data on your pages](/projects/pkviewer/privacy) belongs to you and to PluralKit, not to the licence. Nothing about the code being open changes what is public.
+The [data on your pages](/pkviewer/privacy) belongs to you and to PluralKit, not to the licence. Nothing about the code being open changes what is public.
 
 ### Pages
 
-- [*Claiming a system*](/projects/pkviewer/claiming)
-- [*Your public address*](/projects/pkviewer/addresses)
-- [*Appearance and layout*](/projects/pkviewer/appearance)
-- [*CSS reference*](/projects/pkviewer/css)
-- [*Badges*](/projects/pkviewer/badges)
-- [*Privacy*](/projects/pkviewer/privacy)
+- [*Claiming a system*](/pkviewer/claiming)
+- [*Your public address*](/pkviewer/addresses)
+- [*Appearance and layout*](/pkviewer/appearance)
+- [*CSS reference*](/pkviewer/css)
+- [*Badges*](/pkviewer/badges)
+- [*Privacy*](/pkviewer/privacy)

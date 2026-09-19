@@ -1,7 +1,7 @@
 ---
 order: 50
 label: Privacy Policy
-icon: ../../media/legal.png
+icon: ../media/legal.png
 ---
 
 > Effective 17 September 2026
@@ -24,11 +24,11 @@ Beyond those, the bot writes `cog_state.json`, which records which command modul
 
 - What is stored is the media file itself, the YouTube video or audio. It is not tagged with your name, your user ID, the server, or the time, and there is no index of who asked for what. Alongside it sits a small record used for caching — the video's ID, the format, the title, the resolution and the size — which likewise identifies no one.
 - Each file lives in its own directory with a random, unguessable name. Anyone who has the link can download it while it exists; it is not otherwise listed or searchable.
-- Files are served only from `sandrone.doughmination.gay`. See [Official links](/projects/sandrone/official-links/).
+- Files are served only from `sandrone.doughmination.gay`. See [Official links](/sandrone/official-links/).
 - A sweep deletes each file once it is older than the retention window, 24 hours by default. Asking for the same video again while its copy still exists hands back the same link and restarts that 24-hour timer, so a file in active use is not swept out from under it; fetching the link directly does the same.
 - The bot refuses to keep any single file larger than a configured cap (2 GiB by default), so one large pull cannot fill the host's disk.
 
-If you would rather a download not sit on the host at all, keep it under your server's attachment limit, or do not use the command. [Hosted downloads](/projects/sandrone/downloads/) covers the mechanics in full.
+If you would rather a download not sit on the host at all, keep it under your server's attachment limit, or do not use the command. [Hosted downloads](/sandrone/downloads/) covers the mechanics in full.
 
 ### What Discord sends when you run a command
 
@@ -38,7 +38,7 @@ Two things can outlast the reply. One is a hosted `/yt-dlp` file, covered above 
 
 Sandrone does not have the message content intent. It cannot read your conversations — only what you type into a slash command's options.
 
-For the puppet-incident feature ([Sandrone's moods](/projects/sandrone/commands/#sandrones-moods)), the bot does notice when a message is sent, so it knows which channel is currently active. All it keeps is a single "most recently active channel" pointer, held in memory and wiped on restart. It records no message content — it cannot read any — no author, and no history; the previous channel is simply overwritten by the next.
+For the puppet-incident feature ([Sandrone's moods](/sandrone/commands/#sandrones-moods)), the bot does notice when a message is sent, so it knows which channel is currently active. All it keeps is a single "most recently active channel" pointer, held in memory and wiped on restart. It records no message content — it cannot read any — no author, and no history; the previous channel is simply overwritten by the next.
 
 ### Third-party services
 

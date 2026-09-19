@@ -48,7 +48,7 @@ If you would rather lock commands down, Discord's own **Server Settings → Inte
 
 ## Age-restricted commands
 
-`/nsfwgif` is flagged age-restricted at the Discord level. That means Discord — not Sandrone — decides who may run it and where, based on your account's age setting and whether the channel is marked as age-restricted. Sandrone does not record who ran it. See the [*Command reference*](/projects/sandrone/commands#age-restricted-18) for the detail.
+`/nsfwgif` is flagged age-restricted at the Discord level. That means Discord — not Sandrone — decides who may run it and where, based on your account's age setting and whether the channel is marked as age-restricted. Sandrone does not record who ran it. See the [*Command reference*](/sandrone/commands#age-restricted-18) for the detail.
 
 ## Where commands work
 
@@ -64,7 +64,7 @@ If you would rather lock commands down, Discord's own **Server Settings → Inte
 - **From a server** — **Server Settings → Integrations → Sandrone → Remove App**, or just kick the bot.
 - **From your account** — right-click the bot in your DM list, or find it under **Settings → Authorised Apps**.
 
-Nothing is left behind either way. There is no account to delete and no stored data to erase, because there was never any to begin with — see [*Privacy Policy*](/projects/sandrone/privacy).
+Nothing is left behind either way. There is no account to delete and no stored data to erase, because there was never any to begin with — see [*Privacy Policy*](/sandrone/privacy).
 
 ## If something isn't working
 
@@ -80,5 +80,5 @@ Exactly what it says: the bot's role in that channel doesn't have that permissio
 Commands are grouped into modules, and the owner can switch a module off with `/cog unload` — for maintenance, or because something upstream broke. It'll be back. The [repository](https://github.com/doughmination/sandrone) is the source of truth for what currently exists.
 
 >>> *Everything is failing at once*
-The bot is probably restarting, or the host is down. It usually comes back within about half an hour; the [support server](https://discord.gg/N8gCjS294R) is the place to ask. There is no uptime guarantee — see [*Terms of Service*](/projects/sandrone/tos).
+The bot is probably restarting, or the host is down. It usually comes back within about half an hour; the [support server](https://discord.gg/N8gCjS294R) is the place to ask. There is no uptime guarantee — see [*Terms of Service*](/sandrone/tos).
 >>>

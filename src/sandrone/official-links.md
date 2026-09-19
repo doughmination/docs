@@ -57,7 +57,7 @@ The code is public and mirrored in three places. All three are the same reposito
 | Codeberg | [codeberg.org/clove/sandrone](https://codeberg.org/clove/sandrone) |
 | dough-git | [backup.doughmination.gay/clove/sandrone](https://backup.doughmination.gay/clove/sandrone) |
 
-A fork of that code on someone else's account is not Sandrone, and running one as a public bot is not permitted — see [*Terms of Service*](/projects/sandrone/tos) and [*Development*](/projects/sandrone/development).
+A fork of that code on someone else's account is not Sandrone, and running one as a public bot is not permitted — see [*Terms of Service*](/sandrone/tos) and [*Development*](/sandrone/development).
 
 ## Services Sandrone talks to
 
@@ -79,7 +79,7 @@ Separate question, and worth not confusing with the list above: several commands
 | `/stats` | `ip-api.com`, for the bot's own hosting region |
 | Images and GIFs in embeds | `m.doughmination.gay`, the CDN |
 
-The [*Privacy Policy*](/projects/sandrone/privacy) says what each of those receives.
+The [*Privacy Policy*](/sandrone/privacy) says what each of those receives.
 
 ## Reporting an impersonator
 

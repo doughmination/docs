@@ -1,0 +1,282 @@
+{
+  "version": "4.6.0",
+  "created": "2026-09-19T18:26:05Z",
+  "files": [
+    {
+      "path": ".nojekyll"
+    },
+    {
+      "path": "404.html"
+    },
+    {
+      "path": "assets\\css\\jpcl-theme.css"
+    },
+    {
+      "path": "CNAME"
+    },
+    {
+      "path": "doughmination-music.md"
+    },
+    {
+      "path": "doughmination-music\\index.html"
+    },
+    {
+      "path": "faq.md"
+    },
+    {
+      "path": "faq\\index.html"
+    },
+    {
+      "path": "index.html"
+    },
+    {
+      "path": "index.md"
+    },
+    {
+      "path": "jpcl.md"
+    },
+    {
+      "path": "jpcl\\cli.md"
+    },
+    {
+      "path": "jpcl\\cli\\index.html"
+    },
+    {
+      "path": "jpcl\\errors.md"
+    },
+    {
+      "path": "jpcl\\errors\\index.html"
+    },
+    {
+      "path": "jpcl\\go.md"
+    },
+    {
+      "path": "jpcl\\go\\index.html"
+    },
+    {
+      "path": "jpcl\\index.html"
+    },
+    {
+      "path": "jpcl\\npm.md"
+    },
+    {
+      "path": "jpcl\\npm\\index.html"
+    },
+    {
+      "path": "jpcl\\py.md"
+    },
+    {
+      "path": "jpcl\\py\\index.html"
+    },
+    {
+      "path": "jpcl\\recipes.md"
+    },
+    {
+      "path": "jpcl\\recipes\\index.html"
+    },
+    {
+      "path": "jpcl\\spec.md"
+    },
+    {
+      "path": "jpcl\\spec\\index.html"
+    },
+    {
+      "path": "jpcl\\start.md"
+    },
+    {
+      "path": "jpcl\\start\\index.html"
+    },
+    {
+      "path": "jpcl\\syntax.md"
+    },
+    {
+      "path": "jpcl\\syntax\\index.html"
+    },
+    {
+      "path": "llms.txt"
+    },
+    {
+      "path": "media\\commands.png"
+    },
+    {
+      "path": "media\\favicon.png"
+    },
+    {
+      "path": "media\\go.svg"
+    },
+    {
+      "path": "media\\legal.png"
+    },
+    {
+      "path": "media\\nodejs.svg"
+    },
+    {
+      "path": "media\\pkviewer-banner.png"
+    },
+    {
+      "path": "media\\pkviewer.svg"
+    },
+    {
+      "path": "media\\python.svg"
+    },
+    {
+      "path": "media\\sandrone.png"
+    },
+    {
+      "path": "pkviewer.md"
+    },
+    {
+      "path": "pkviewer\\addresses.md"
+    },
+    {
+      "path": "pkviewer\\addresses\\index.html"
+    },
+    {
+      "path": "pkviewer\\appearance.md"
+    },
+    {
+      "path": "pkviewer\\appearance\\index.html"
+    },
+    {
+      "path": "pkviewer\\badges.md"
+    },
+    {
+      "path": "pkviewer\\badges\\index.html"
+    },
+    {
+      "path": "pkviewer\\claiming.md"
+    },
+    {
+      "path": "pkviewer\\claiming\\index.html"
+    },
+    {
+      "path": "pkviewer\\css.md"
+    },
+    {
+      "path": "pkviewer\\css\\index.html"
+    },
+    {
+      "path": "pkviewer\\index.html"
+    },
+    {
+      "path": "pkviewer\\privacy.md"
+    },
+    {
+      "path": "pkviewer\\privacy\\index.html"
+    },
+    {
+      "path": "resources\\css\\retype.css"
+    },
+    {
+      "path": "resources\\fonts\\Inter-italic-latin-var.woff2"
+    },
+    {
+      "path": "resources\\fonts\\Inter-roman-latin-var.woff2"
+    },
+    {
+      "path": "resources\\js\\config.js"
+    },
+    {
+      "path": "resources\\js\\instagram.js"
+    },
+    {
+      "path": "resources\\js\\lunr.js"
+    },
+    {
+      "path": "resources\\js\\prism.js"
+    },
+    {
+      "path": "resources\\js\\retype.js"
+    },
+    {
+      "path": "resources\\js\\search.json"
+    },
+    {
+      "path": "resources\\lunr.js.LICENSE.txt"
+    },
+    {
+      "path": "resources\\mermaid.js.LICENSE.txt"
+    },
+    {
+      "path": "resources\\prism.js.LICENSE.txt"
+    },
+    {
+      "path": "resources\\retype.js.LICENSE.txt"
+    },
+    {
+      "path": "resources\\retype.LICENSE.txt"
+    },
+    {
+      "path": "robots.txt"
+    },
+    {
+      "path": "sandrone.md"
+    },
+    {
+      "path": "sandrone\\commands.md"
+    },
+    {
+      "path": "sandrone\\commands\\index.html"
+    },
+    {
+      "path": "sandrone\\development.md"
+    },
+    {
+      "path": "sandrone\\development\\index.html"
+    },
+    {
+      "path": "sandrone\\downloads.md"
+    },
+    {
+      "path": "sandrone\\downloads\\index.html"
+    },
+    {
+      "path": "sandrone\\errors.md"
+    },
+    {
+      "path": "sandrone\\errors\\index.html"
+    },
+    {
+      "path": "sandrone\\flags.md"
+    },
+    {
+      "path": "sandrone\\flags\\index.html"
+    },
+    {
+      "path": "sandrone\\index.html"
+    },
+    {
+      "path": "sandrone\\official-links.md"
+    },
+    {
+      "path": "sandrone\\official-links\\index.html"
+    },
+    {
+      "path": "sandrone\\privacy.md"
+    },
+    {
+      "path": "sandrone\\privacy\\index.html"
+    },
+    {
+      "path": "sandrone\\setup.md"
+    },
+    {
+      "path": "sandrone\\setup\\index.html"
+    },
+    {
+      "path": "sandrone\\tos.md"
+    },
+    {
+      "path": "sandrone\\tos\\index.html"
+    },
+    {
+      "path": "sandrone\\units.md"
+    },
+    {
+      "path": "sandrone\\units\\index.html"
+    },
+    {
+      "path": "sitemap.xml"
+    }
+  ]
+}

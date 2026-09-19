@@ -1,12 +1,12 @@
 ---
-order: 50
+order: 500
 label: FAQ
 icon: question
 ---
 
 ### **Where are the static files hosted?**
 
-They are served from [*my CDN*](https://m.doughmination.gay*), which is a Cloudflare Pages project.
+They are served from [*my CDN*](https://m.doughmination.gay), which is a Cloudflare Pages project.
 
 !!!secondary
 Please don't hotlink your own resources to this CDN. It's for personal use and may change at any point.

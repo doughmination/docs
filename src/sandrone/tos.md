@@ -1,7 +1,7 @@
 ---
 order: 100
 label: Terms of Service
-icon: ../../media/legal.png
+icon: ../media/legal.png
 ---
 
 > Effective 17 September 2026
@@ -14,7 +14,7 @@ Using Sandrone means you accept what is written here. If you do not, do not use 
 ### Which bot these terms cover
 These terms apply to the bot with the Discord application ID `1539185764904996974`, and to its official links only: `discord.com` and `discord.gg`, `sandrone.is-a.bot`, and `sandrone.doughmination.gay`.
 
-Anything else calling itself Sandrone is not covered by these terms, is not operated by the owner, and should not be trusted. See [Official links](/projects/sandrone/official-links) for how to verify what you are talking to.
+Anything else calling itself Sandrone is not covered by these terms, is not operated by the owner, and should not be trusted. See [Official links](/sandrone/official-links) for how to verify what you are talking to.
 
 ### Acceptable use
 You agree not to:
@@ -42,13 +42,13 @@ Sandrone is provided “as is”, without warranty of any kind. To the fullest e
 Nothing here limits liability for death or personal injury caused by negligence, for fraud, or for anything else that cannot lawfully be limited.
 
 ### Third-party services
-Several commands fetch data from services the owner does not run, listed in the [Privacy Policy](/projects/sandrone/privacy). Their terms apply to their content.
+Several commands fetch data from services the owner does not run, listed in the [Privacy Policy](/sandrone/privacy). Their terms apply to their content.
 
 ### Changes to these terms
 These terms may change. The effective date above will change with them, and continuing to use the bot after that means accepting the new version.
 
 ### Licensing
-The bot's source code is released under the Doughmination Authorised Source Licence (DASL-1.2). It is source-available, not open source: you may read it and you may fork it to prepare a contribution, but running your own instance, deploying it, redistributing it, or commercialising it requires written authorisation. [Development](/projects/sandrone/development) summarises what that means in practice, and the [full text](https://github.com/doughmination/sandrone/blob/main/licence.md) governs.
+The bot's source code is released under the Doughmination Authorised Source Licence (DASL-1.2). It is source-available, not open source: you may read it and you may fork it to prepare a contribution, but running your own instance, deploying it, redistributing it, or commercialising it requires written authorisation. [Development](/sandrone/development) summarises what that means in practice, and the [full text](https://github.com/doughmination/sandrone/blob/main/licence.md) governs.
 
 The "Sandrone" name and the Doughmination branding are not licensed with the code.
 

@@ -1,7 +1,7 @@
 ---
 order: 1000
 label: All Commands
-icon: ../../media/commands.png
+icon: ../media/commands.png
 ---
 
 # Commands
@@ -10,7 +10,7 @@ Everything Sandrone answers to. All of them are slash commands, so Discord will 
 
 Angle brackets mean an option is required, square brackets mean it is optional. Where an option offers suggestions as you type, that's noted — Discord calls it autocomplete, and it is filtered live against what's actually available.
 
-Nothing here is stored about you. The only command that leaves anything on disk is `/yt-dlp`, which hosts oversized downloads for a day; the [Privacy Policy](/projects/sandrone/privacy/) and [Hosted downloads](/projects/sandrone/downloads/) explain both.
+Nothing here is stored about you. The only command that leaves anything on disk is `/yt-dlp`, which hosts oversized downloads for a day; the [Privacy Policy](/sandrone/privacy/) and [Hosted downloads](/sandrone/downloads/) explain both.
 
 ---
 
@@ -30,7 +30,7 @@ The region is looked up once, the first time anyone runs the command after a res
 
 Every related link: inviting the bot, the support server, the website, and the source code. The footer carries the running version.
 
-Every link in that reply is on one of the domains listed in [Official links](/projects/sandrone/official-links/). If you ever see a `/links` reply pointing somewhere else, you're not talking to this bot.
+Every link in that reply is on one of the domains listed in [Official links](/sandrone/official-links/). If you ever see a `/links` reply pointing somewhere else, you're not talking to this bot.
 
 ---
 
@@ -54,7 +54,7 @@ Set `server` to **Server** for their per-server picture instead. Someone who has
 
 A user's Discord ID. Defaults to you.
 
-Handy for checking a bot is the bot it claims to be — see [Checking the account itself](/projects/sandrone/official-links/#checking-the-account-itself).
+Handy for checking a bot is the bot it claims to be — see [Checking the account itself](/sandrone/official-links/#checking-the-account-itself).
 
 ---
 
@@ -188,7 +188,7 @@ Both unit options suggest as you type, and they narrow each other: once one side
 
 Asking for something impossible tells you why rather than returning a number: converting metres into kilograms says so in as many words.
 
-The full unit list is on the [Unit reference](/projects/sandrone/units/) page.
+The full unit list is on the [Unit reference](/sandrone/units/) page.
 
 ### `/translate <text> <source> [to]`
 
@@ -216,7 +216,7 @@ A result that fits your server's upload limit is attached directly; a bigger one
 
 Only YouTube links work — `youtube.com`, `youtu.be` and `music.youtube.com`. Playlists are ignored; you get the one video.
 
-[Hosted downloads](/projects/sandrone/downloads/) covers the hosting side in full: what is kept, for how long, who can reach it, and how to avoid it.
+[Hosted downloads](/sandrone/downloads/) covers the hosting side in full: what is kept, for how long, who can reach it, and how to avoid it.
 
 ### `/tweet <url>`
 
@@ -236,7 +236,7 @@ Takes `bsky.app` links and the usual embed-fixer mirrors — `xsky.app`, `fxbsky
 
 Put a pride flag around someone's profile picture — 30 flags, two at once if you want, as a still PNG or a spinning GIF.
 
-Every option is documented on the [Pride flags](/projects/sandrone/flags/) page, which also lists all 30 flags and the names they answer to.
+Every option is documented on the [Pride flags](/sandrone/flags/) page, which also lists all 30 flags and the names they answer to.
 
 ### `/snippet <snip>`
 
@@ -356,4 +356,4 @@ Force a puppet incident into the last active channel, instead of waiting for one
 
 Commands come and go as the bot gets worked on. The [bot's repository](https://github.com/doughmination/sandrone) is the source of truth.
 
-If a command you were using has disappeared, it's most likely been unloaded temporarily — see [If something isn't working](/projects/sandrone/setup/#if-something-isnt-working).
+If a command you were using has disappeared, it's most likely been unloaded temporarily — see [If something isn't working](/sandrone/setup/#if-something-isnt-working).
